@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Assessment</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+  <script src="scripts/arquivo.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <div class="container">
+        <!-- Logo e Título -->
+        <header>
+            <div class="logo-container">
+                <img src="assets/logo-transformed.png" alt="SCA Coffee Value Assessment Logo" class="logo">
+                <img src="assets/logo-unb.jpg" alt="logo-unb" class="logo">
+            </div>
+            <H1>Adaptado de:<br> Coffee Value Assessment</H1>
+            <h2>Physical Assessment</h1>
+            <h2>Alpha V1 - September 2023</h2>
+        </header>
+
+        <!-- Descrição -->
+        <p class="description">
+            Thank you for testing Alpha V1 of the Physical Assessment, one of four assessments to be completed under the SCA's Coffee Value Assessment System. The SCA anticipates conducting user research on this assessment in 2024. 
+            <br>
+            To learn more, please visit <a href="https://sca.coffee/value-assessment" target="_blank">sca.coffee/value-assessment</a>.
+        </p>
+
+        <!-- Baseado em amostra -->
+        <p class="sample-info"><strong>Based on a 350g sample</strong></p>
+
+        <!-- Campo de número da amostra -->
+        <div class="sample-number">
+            <label for="sample-number">SAMPLE No.</label>
+            <input type="number" id="sample-number" name="sample-number">
+        </div>
+
+        <!-- Seção de Color -->
+        <div class="color-section">
+            <div class="color-title">
+              <h3>Color</h3>
+            </div>
+            <div class="color-options">
+              <label><input type="checkbox" value="Blue Green"> Blue Green</label>
+              <label><input type="checkbox" value="Bluish-Green"> Bluish-Green</label>
+              <label><input type="checkbox" value="Green"> Green</label>
+              <label><input type="checkbox" value="Greenish"> Greenish</label>
+              <label><input type="checkbox" value="Yellow-Green"> Yellow-Green</label>
+              <label><input type="checkbox" value="Pale Yellow"> Pale Yellow</label>
+              <label><input type="checkbox" value="Yellowish"> Yellowish</label>
+              <label><input type="checkbox" value="Brownish"> Brownish</label>
+            </div>          
+        </div> 
+    <div class="conteudo-central">
+        <!-- Tabela Principal -->
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>Physical Defects</th>
+                <th>Ratio</th>
+                <th>Defect Count</th>
+                <th>Full Defects</th>
+                <th>TOTAL GREEN DEFECTS </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-ratio="1">
+                <td>Full Black</td>
+                <td>(1:1)</td>
+                <td><input id="count-1" type="number" placeholder="0" oninput="calcularTotal('count-1', 'total-1')"></td>
+                <td><input id="total-1" type="number" disabled></td>
+                <td><input id="totalGeral" type="number"></td>
+              </tr>
+              <tr data-ratio="1">
+                <td>Full Sour</td>
+                <td>(1:1)</td>
+                <td><input id="count-2" type="number" placeholder="0" oninput="calcularTotal('count-2','total-2')"></td>
+                <td><input id="total-2" type="number" disabled></td>
+              </tr>
+              <tr data-ratio="1">
+                <td>Dried Cherry</td>
+                <td>(1:1)</td>
+                <td><input id="count-3" type="number" placeholder="0" oninput="calcularTotal('count-3','total-3')"></td>
+                <td><input id="total-3" type="number" disabled></td>
+              </tr>
+              </div>
+              <tr data-ratio="1">
+                <td>Fungus Damage</td>
+                <td>(1:1)</td>
+                <td><input id="count-4" type="number" placeholder="0" oninput="calcularTotal('count-4', 'total-4')"></td>   
+                <td><input id="total-4" type="number" disabled></td> 
+            </tr>
+              <tr data-ratio="1">
+                  <td>Foreign Matter</td>
+                  <td>(1:1)</td>
+                  <td><input id="count-5" type="number" placeholder="0" oninput="calcularTotal('count-5','total-5')"></td>   
+                  <td><input id="total-5" type="number"></td> 
+              </tr>
+              <tr data-ratio="5">
+                <td>Severe Insect Damage</td>
+                <td>(5:1)</td>
+                <td><input id="count-6" type="number" placeholder="0" oninput="calcularTotal('count-6', 'total-6')"></td>   
+                <td><input id="total-6" type="number" disabled></td> 
+            </tr>
+              <tr data-ratio="3">
+                  <td>Partial Black</td>
+                  <td>(3:1)</td>
+                  <td><input id="count-7" type="number" placeholder="0"oninput="calcularTotal('count-7','total-7')"></td>   
+                  <td><input id="total-7" type="number"></td> 
+              </tr>
+              <tr data-ratio="3">
+                  <td>Partial Sour</td>
+                  <td>(3:1)</td>
+                  <td><input id="count-8" type="number" placeholder="0"oninput="calcularTotal('count-8','total-8')"></td>   
+                  <td><input id="total-8" type="number"></td> 
+              </tr>
+              <tr data-ratio="5">
+                  <td>Parchment</td>
+                  <td>(5:1)</td>
+                  <td><input id="count-9" type="number" placeholder="0"oninput="calcularTotal('count-9','total-9')"></td>   
+                  <td><input id="total-9" type="number"></td> 
+              </tr>
+              <tr data-ratio="5">
+                  <td>Floater</td>
+                  <td>(5:1)</td>
+                  <td><input id="count-10" type="number" placeholder="0"oninput="calcularTotal('count-10','total-10')"></td>   
+                  <td><input id="total-10" type="number"></td> 
+              </tr>
+              <tr data-ratio="5">
+                  <td>Immature/unripe</td>
+                  <td>(5:1)</td>
+                  <td><input id="count-11" type="number" placeholder="0"oninput="calcularTotal('count-11','total-11')"></td>   
+                  <td><input id="total-11" type="number"></td> 
+              </tr>
+              <tr data-ratio="5">
+                  <td>Withered</td>
+                  <td>(5:1)</td>
+                  <td><input id="count-12" type="number" placeholder="0"oninput="calcularTotal('count-12','total-12')"></td>   
+                  <td><input id="total-12" type="number"></td> 
+              </tr>
+              <tr data-ratio="5">
+                  <td>Shell</td>
+                  <td>(5:1)</td>
+                  <td><input id="count-13" type="number" placeholder="0"oninput="calcularTotal('count-13','total-13')"></td>   
+                  <td><input id="total-13" type="number"></td> 
+              </tr>
+              <tr data-ratio="5">
+                  <td>Broken / Chipped / Cut</td>
+                  <td>(5:1)</td>
+                  <td><input id="count-14" type="number" placeholder="0"oninput="calcularTotal('count-14','total-14')"></td>   
+                  <td><input id="total-14" type="number"></td> 
+              </tr>
+              <tr data-ratio="5">
+                  <td>Hull / Husk</td>
+                  <td>(5:1)</td>
+                  <td><input id="count-15" type="number" placeholder="0"oninput="calcularTotal('count-15','total-15')"></td>   
+                  <td><input id="total-15" type="number"></td> 
+              </tr>
+              <tr data-ratio="10">
+                  <td>Slight Insect Damage</td>
+                  <td>(10:1)</td>
+                  <td><input id="count-16" type="number" placeholder="0"oninput="calcularTotal('count-16','total-16')"></td>   
+                  <td><input id="total-16" type="number"></td> 
+              </tr>            
+            </tbody>
+          </table>
+          <div class="conteiner-ancoras">
+            <a href="descriptive-Form.html" style="margin-left: 20px; text-decoration: none; font-weight: bold; color: blue;">
+            Próxima Parte ➡️
+            </a>
+            <button type="button" onclick="gerarExcel()">Gerar Planilha</button>
+          </div>
+      </div>
+         <!-- Âncora para a próxima parte do formulário -->
+        
+      
+      
+        <div class="moisture-section">
+            <label for="moisture">Moisture:</label>
+            <input type="text" id="moisture" placeholder="__%" name="moisture">
+            <p>Meter calibrated to ISO 6637</p>
+            <label for="sobrasAmostras">Peso sem defeitos</label>
+            <input id="sobras" type="number" placeholder="quantidade das sobras">
+        </div>
+      
+        <!-- Tamanhos -->
+        <table class="size-table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th>g</th>
+                <th>%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#10</td>
+                <td><input id="gramas-10" type="number" oninput="calcularPorcentagem('gramas-10', 'porcentagem-10')" /></td>
+                <td><input id="porcentagem-10" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#11</td>
+                <td><input id="gramas-11" type="number" oninput="calcularPorcentagem('gramas-11', 'porcentagem-11')" /></td>
+                <td><input id="porcentagem-11" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#12</td>
+                <td><input id="gramas-12" type="number" oninput="calcularPorcentagem('gramas-12', 'porcentagem-12')" /></td>
+                <td><input id="porcentagem-12" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#13</td>
+                <td><input id="gramas-13" type="number" oninput="calcularPorcentagem('gramas-13', 'porcentagem-13')" /></td>
+                <td><input id="porcentagem-13" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#14</td>
+                <td><input id="gramas-14" type="number" oninput="calcularPorcentagem('gramas-14', 'porcentagem-14')" /></td>
+                <td><input id="porcentagem-14" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#15</td>
+                <td><input id="gramas-15" type="number" oninput="calcularPorcentagem('gramas-15', 'porcentagem-15')" /></td>
+                <td><input id="porcentagem-15" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#16</td>
+                <td><input id="gramas-16" type="number" oninput="calcularPorcentagem('gramas-16', 'porcentagem-16')" /></td>
+                <td><input id="porcentagem-16" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#17</td>
+                <td><input id="gramas-17" type="number" oninput="calcularPorcentagem('gramas-17', 'porcentagem-17')" /></td>
+                <td><input id="porcentagem-17" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#18</td>
+                <td><input id="gramas-18" type="number" oninput="calcularPorcentagem('gramas-18', 'porcentagem-18')" /></td>
+                <td><input id="porcentagem-18" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#19</td>
+                <td><input id="gramas-19" type="number" oninput="calcularPorcentagem('gramas-19', 'porcentagem-19')" /></td>
+                <td><input id="porcentagem-19" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#20</td>
+                <td><input id="gramas-20" type="number" oninput="calcularPorcentagem('gramas-20', 'porcentagem-20')" /></td>
+                <td><input id="porcentagem-20" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#21</td>
+                <td><input id="gramas-21" type="number" oninput="calcularPorcentagem('gramas-21', 'porcentagem-21')" /></td>
+                <td><input id="porcentagem-21" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#22</td>
+                <td><input id="gramas-22" type="number" oninput="calcularPorcentagem('gramas-22', 'porcentagem-22')" /></td>
+                <td><input id="porcentagem-22" type="number" readonly /></td>
+              </tr>
+              <tr>
+                <td>#23</td>
+                <td><input id="gramas-23" type="number" oninput="calcularPorcentagem('gramas-23', 'porcentagem-23')" /></td>
+                <td><input id="porcentagem-23" type="number" readonly /></td>
+              </tr>                
+            </tbody>
+    </div>
+</body>
+</html>

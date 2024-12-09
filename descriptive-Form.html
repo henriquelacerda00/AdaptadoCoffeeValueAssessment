@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descriptive-Form</title>
+    <link rel="stylesheet" href="./styles/styles-descriptive.css">
+</head>
+<body>
+    <script src="scripts/arquivo.js"></script>
+    <div class="form-container">
+        <header class="form-header">
+            <img src="./assets/logo-transformed.png" alt="logo" class="descriptive-Form-logo">
+            <h1 class="titulo-cabecalho">SCA Coffee Value<br>Assessment</h1>
+            <div class="form-details">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+                
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date">
+                
+                <label for="purpose">Purpose:</label>
+                <input type="text" id="purpose" name="purpose" placeholder="Enter purpose">
+            </div>
+            <img src="./assets/logo-unb.jpg" alt="logo" class="descriptive-Form-logo">
+        </header>        
+        <h2 class="form-title">Descriptive Form</h2>
+
+        <div class="form-section">
+            <div class="form-row">
+                <label for="sample-no">Sample No.</label>
+                <input type="number" id="sample-no">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="scale">
+                <h3>Fragrance</h3>
+                <label>Intensity:</label>
+                <div class="scale-range">
+                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
+                    <div class="arrow-marker" style="left: 66%;">&#11167;</div>
+                </div>
+                <div class="range-labels">
+                    <span class="m-0">0</span>
+                    <span class="m-5">5</span>
+                    <span class="m-10">10</span>
+                    <span class="m-15">15</span>
+                </div>
+                <div class="range-markers">
+                    <span>Low</span>
+                    <span>Medium</span>
+                    <span>High</span>
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div class="scale">
+                <h3>Aroma</h3>
+                <label>Intensity:</label>
+                <div class="scale-range">
+                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
+                    <div class="arrow-marker" style="left: 66%;">&#11167;</div>
+                </div>
+                <div class="range-labels">
+                    <span class="m-0">0</span>
+                    <span class="m-5">5</span>
+                    <span class="m-10">10</span>
+                    <span class="m-15">15</span>
+                </div>
+                <div class="range-markers">
+                    <span>Low</span>
+                    <span>Medium</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="checkbox-group">
+                <label><input type="checkbox"> Floral</label>
+                <label><input type="checkbox"> Fruity</label>
+                <label><input type="checkbox"> Berry</label>
+                <label><input type="checkbox"> Dried Fruit</label>
+                <label><input type="checkbox"> Citrus Fruit</label>
+                <label><input type="checkbox"> Roasted</label>
+                <label><input type="checkbox"> Cereal</label>
+                <label><input type="checkbox"> Burnt</label>
+                <label><input type="checkbox"> Tobacco</label>
+                <label><input type="checkbox"> Sour/Fermented</label>
+                <label><input type="checkbox"> Sour</label>
+                <label><input type="checkbox"> Fermented</label>
+                <label><input type="checkbox"> Green/Vegetative</label>
+                <label><input type="checkbox"> Nutty/Cocoa</label>
+                <label><input type="checkbox"> Nutty</label>
+                <label><input type="checkbox"> Cocoa</label>
+                <label><input type="checkbox"> Spice</label>
+                <label><input type="checkbox"> Other</label>
+                <label><input type="checkbox"> Chemical</label>
+                <label><input type="checkbox"> Musty/Earthy</label>
+                <label><input type="checkbox"> Woody</label>
+                <label><input type="checkbox"> Sweet</label>
+                <label><input type="checkbox"> Vanilla/Vanillin</label>
+                <label><input type="checkbox"> Brown Sugar</label>
+                <!-- Add more checkboxes as needed -->
+            </div>
+            
+              <div class="notes-section">
+                 <label for="notes">Notes:</label>
+                 <textarea id="notes" rows="4"></textarea>
+             </div>
+            <div class="form-group">
+                <div class="scale">
+                    <h3>Flavor</h3>
+                    <label>Intensity:</label>
+                <div class="scale-range">
+                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
+                    <div class="arrow-marker" style="left: 66%;">&#11167;</div>
+                </div>
+                <div class="range-labels">
+                    <span class="m-0">0</span>
+                    <span class="m-5">5</span>
+                    <span class="m-10">10</span>
+                    <span class="m-15">15</span>
+                </div>
+                <div class="range-markers">
+                    <span>Low</span>
+                    <span>Medium</span>
+                    <span>High</span>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="scale">
+                    <h3>Aftertaste</h3>
+                    <label>Intensity:</label>
+                <div class="scale-range">
+                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
+                    <div class="arrow-marker" style="left: 66%;">&#11167;</div>
+                </div>
+                <div class="range-labels">
+                    <span class="m-0">0</span>
+                    <span class="m-5">5</span>
+                    <span class="m-10">10</span>
+                    <span class="m-15">15</span>
+                </div>
+                <div class="range-markers">
+                    <span>Low</span>
+                    <span>Medium</span>
+                    <span>High</span>
+                </div>
+            </div>
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> Floral</label>
+                    <label><input type="checkbox"> Fruity</label>
+                    <label><input type="checkbox"> Berry</label>
+                    <label><input type="checkbox"> Dried Fruit</label>
+                    <label><input type="checkbox"> Citrus Fruit</label>
+                    <label><input type="checkbox"> Roasted</label>
+                    <label><input type="checkbox"> Cereal</label>
+                    <label><input type="checkbox"> Burnt</label>
+                    <label><input type="checkbox"> Tobacco</label>
+                    <label><input type="checkbox"> Sour/Fermented</label>
+                    <label><input type="checkbox"> Sour</label>
+                    <label><input type="checkbox"> Fermented</label>
+                    <label><input type="checkbox"> Green/Vegetative</label>
+                    <label><input type="checkbox"> Nutty/Cocoa</label>
+                    <label><input type="checkbox"> Nutty</label>
+                    <label><input type="checkbox"> Cocoa</label>
+                    <label><input type="checkbox"> Spice</label>
+                    <label><input type="checkbox"> Other</label>
+                    <label><input type="checkbox"> Chemical</label>
+                    <label><input type="checkbox"> Musty/Earthy</label>
+                    <label><input type="checkbox"> Woody</label>
+                    <label><input type="checkbox"> Sweet</label>
+                    <label><input type="checkbox"> Vanilla/Vanillin</label>
+                    <label><input type="checkbox"> Brown Sugar</label>
+                    <!-- Add more checkboxes as needed -->
+                </div>
+            </div>
+        <!-- Repeat similar structure for other sections like Flavor, Aftertaste, etc. -->
+        <div class="notes-section">
+            <label for="notes">Notes:</label>
+            <textarea id="notes" rows="4"></textarea>
+        </div>
+        <div class="form-section">
+            <!-- Acidity Section -->
+            <div class="form-group">
+                <div class="scale">
+                    <h3>Acidity</h3>
+                    <label>Intensity:</label>
+                <div class="scale-range">
+                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
+                    <div class="arrow-marker" style="left: 66%;">&#11167;</div>
+                </div>
+                <div class="range-labels">
+                    <span class="m-0">0</span>
+                    <span class="m-5">5</span>
+                    <span class="m-10">10</span>
+                    <span class="m-15">15</span>
+                </div>
+                <div class="range-markers">
+                    <span>Low</span>
+                    <span>Medium</span>
+                    <span>High</span>
+                </div>
+                <div class="notes-section">
+                    <label class="texto-notes" for="acidity-notes">Notes:</label>
+                    <textarea id="acidity-notes" rows="2"class="notas-fixas"></textarea>
+                </div>
+                
+            </div>
+
+            <!-- Sweetness Section -->
+            <div class="form-group">
+                <div class="scale">
+                    <h3>Sweetness</h3>
+                    <label>Intensity:</label>
+                <div class="scale-range">
+                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
+                    <div class="arrow-marker" style="left: 66%;">&#11167;</div>
+                </div>
+                <div class="range-labels">
+                    <span class="m-0">0</span>
+                    <span class="m-5">5</span>
+                    <span class="m-10">10</span>
+                    <span class="m-15">15</span>
+                </div>
+                <div class="range-markers">
+                    <span>Low</span>
+                    <span>Medium</span>
+                    <span>High</span>
+                </div>
+                <div class="notes-section">
+                <label for="sweetness-notes">Notes:</label>
+                <textarea id="sweetness-notes" rows="2"class="notas-fixas"></textarea>
+                </div>
+            </div>
+
+            <!-- Mouthfeel Section -->
+            <div class="form-group">
+                <div class="scale">
+                    <h3>Mouthfeel</h3>
+                    <label>Intensity:</label>
+                <div class="scale-range">
+                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
+                    <div class="arrow-marker" style="left: 66%;">&#11167;</div>
+                </div>
+                <div class="range-labels">
+                    <span class="m-0">0</span>
+                    <span class="m-5">5</span>
+                    <span class="m-10">10</span>
+                    <span class="m-15">15</span>
+                </div>
+                <div class="range-markers">
+                    <span>Low</span>
+                    <span>Medium</span>
+                    <span>High</span>
+                </div>
+                <div class="notes-section">
+                    <label for="mouthfeel-notes">Notes:</label>
+                    <textarea id="mouthfeel-notes" rows="2" class="notas-fixas"></textarea>
+                </div>
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> Rough (Gritty, Chalky, Sandy)</label>
+                    <label><input type="checkbox"> Smooth (Velvety, Silky, Syrupy)</label>
+                    <label><input type="checkbox"> Metallic</label>
+                    <label><input type="checkbox"> Oily</label>
+                    <label><input type="checkbox"> Mouth-Drying</label>
+                </div>
+            </div>
+        </div>
+        <div class="ancoras">
+            <a href="index.html" style="margin-left: 20px; text-decoration: none; font-weight: bold; color: blue;">
+                Voltar para o Início
+            </a>
+            <a href="affective-Form.html" style="margin-left: 20px; text-decoration: none; font-weight: bold; color: blue;">
+                formulario affective-Form
+            </a>
+            <a href="extrinsic-Beta.html" style="margin-left: 20px; text-decoration: none; font-weight: bold; color: blue;">
+                Extrisinc-Beta
+            </a>
+        </div>
+    </div>
+</body>
+</html>
