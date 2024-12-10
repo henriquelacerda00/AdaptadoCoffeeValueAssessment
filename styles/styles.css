@@ -1,0 +1,206 @@
+/* Define o estilo geral da página, incluindo fonte, margens, e cor de fundo */
+body {
+    font-family: 'Arial', sans-serif; /* Fonte padrão usada no site */
+    margin: 0; /* Remove as margens padrão do navegador */
+    padding: 20px; /* Adiciona espaçamento ao redor da página */
+    background: #f4f4f9; /* Define um fundo cinza claro */
+}
+
+/* Estilo para o container principal que centraliza e organiza o conteúdo */
+.container {
+    display: block;
+    background: #fff; /* Fundo branco para contraste com o fundo da página */
+    padding: 20px; /* Adiciona espaçamento interno */
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra leve ao container */
+    max-width: 800px; /* Define a largura máxima do container */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    
+}
+
+/* Estilo para o cabeçalho, incluindo logo, título e subtítulo */
+header {
+    text-align: center; /* Centraliza todo o conteúdo dentro do cabeçalho */
+}
+
+/* Estilo para o título principal do site */
+h1 {
+    font-size: 24px; /* Tamanho da fonte do título */
+    margin: 5px 0; /* Define o espaçamento superior e inferior */
+    color: #333; /* Cor escura para contraste */
+}
+
+/* Estilo para o subtítulo, menor e mais discreto */
+h2 {
+    font-size: 18px; /* Tamanho menor que o título principal */
+    margin: 5px 0; /* Define o espaçamento superior e inferior */
+    color: #666; /* Cor cinza mais clara que o título */
+}
+
+/* Estilo para textos descritivos gerais */
+.description {
+    font-size: 14px; /* Tamanho da fonte menor */
+    color: #555; /* Cor cinza médio */
+    margin-bottom: 20px; /* Adiciona espaçamento inferior */
+}
+
+/* Estilo para o texto "Based on a 350g sample" */
+.sample-info {
+    font-weight: bold; /* Coloca o texto em negrito */
+    font-size: 12px; /* Fonte menor, mas em destaque */
+    margin-bottom: 10px; /* Adiciona espaçamento inferior */
+}
+
+/* Estilo para o campo de número da amostra */
+.sample-number {
+    margin-bottom: 20px; /* Adiciona espaçamento inferior para separar do próximo elemento */
+}
+
+.sample-number input{
+    width: 50px !important;
+}
+/* Estilo geral para tabelas */
+table {
+    flex-direction: flex;
+    width: 80%; /* Faz a tabela ocupar toda a largura do container */
+    border-collapse: collapse; /* Remove os espaços entre as bordas das células */
+    margin-top: 20px; /* Adiciona espaçamento acima da tabela */
+    margin-bottom: 10px;
+}
+
+/* Estilo para células (th = cabeçalhos, td = células normais) */
+table th, table td {
+    border: 1px solid #ddd; /* Bordas claras para separar células */
+    padding: 2px; /* Espaçamento interno nas células */
+    text-align: center; /* Alinha o texto à esquerda */
+    width: 10px; /* Largura padrão para células */
+}
+
+/* Estilo específico para cabeçalhos das tabelas */
+table th {
+    background: #f4f4f9; /* Fundo claro para diferenciar dos dados */
+    font-weight: bold; /* Texto em negrito para destaque */
+    width: 5px; /* Largura padrão menor para cabeçalhos */
+}
+
+/* Estilo para campos de entrada (input) do tipo número */
+input[type="number"] {
+    width: 30px; /* Define uma largura fixa para os inputs */
+    text-align: center; /* Centraliza o texto dentro do campo */
+    padding: 5px; /* Espaçamento interno no campo */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    border-radius: 4px; /* Adiciona bordas arredondadas */
+}
+
+
+/* ---------- Estilo da seção Color ---------- */
+
+/* Organiza o layout da seção Color (título e opções de cores) */
+.color-section {
+    display: flex; /* Empilha o conteúdo verticalmente */
+    margin-bottom: 20px; /* Adiciona espaçamento inferior */
+}
+
+.color-title {
+    font-size: 18px; /* Tamanho maior para destaque */
+    font-weight: bold; /* Deixa o título em negrito */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    text-align: left; /* Alinha o título à esquerda */
+}
+
+.color-options {
+    display: flex; /* Organiza as checkboxes ao lado do título */
+    flex-wrap: wrap; /* Permite que as opções quebrem para a próxima linha */
+    gap: 10px; /* Espaçamento entre as checkboxes */
+    margin-left: 10px; /* Espaçamento à esquerda do título */
+}
+
+/* Estilo para cada checkbox e seu texto */
+.color-options label {
+    display: flex; /* Organiza o checkbox e texto em linha */
+    align-items: center; /* Alinha verticalmente */
+    gap: 5px; /* Espaçamento entre checkbox e texto */
+}
+
+.conteudo-central{
+    display: flex;
+    align-items: center;
+}
+/* ---------- Estilo da seção Moisture ---------- */
+
+/* Estilo para o texto explicativo da seção Moisture */
+.moisture-section p {
+    font-size: 12px; /* Texto menor para instruções */
+    color: #666; /* Cor cinza claro */
+    margin-top: 5px; /* Espaçamento superior */
+}
+
+.moisture-section input{
+    width: 15%;
+}
+
+/* ---------- Estilo da tabela Size ---------- */
+
+/* Estilo específico para a tabela de tamanhos (Size) */
+/* Estilo específico para a tabela de tamanhos (Size) */
+.size-table {
+    margin-top: 10px; /* Reduz o espaçamento acima da tabela */
+    font-weight: normal; /* Deixa a fonte no peso padrão */
+    border-collapse: collapse; /* Remove o espaçamento entre as bordas das células */
+    width: 80%; /* Ajusta a largura da tabela */
+}
+
+/* Estiliza os cabeçalhos e células da tabela */
+.size-table th, .size-table td {
+    text-align: center; /* Alinha o texto à esquerda */
+    padding: 4px; /* Reduz o preenchimento dentro das células */
+    border: 1px solid #ccc; /* Adiciona uma borda fina para delimitar melhor as células */
+    width: auto;
+}
+
+/* Remove margens e espaços desnecessários */
+.size-table input {
+    margin: 0; /* Remove margens dos campos de entrada */
+    padding: 2px; /* Diminui o preenchimento dentro dos inputs */
+    width: 18%; /* Ajusta a largura dos inputs para caber bem na célula */
+    box-sizing: border-box; /* Inclui borda e preenchimento no cálculo da largura */
+}
+
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    gap: 40px;
+    margin: 5px 0;
+}
+
+.logo {
+    max-width: 150px; /* Define um tamanho máximo para as logos */
+    height: auto; /* Mantém a proporção */
+}
+
+.conteiner-ancoras {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os itens */
+    margin-top: 20px; /* Espaçamento acima da seção */
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  a {
+    font-weight: bold;
+    color: blue;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  

@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f7f7f7;
+}
+
+.form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.titulo-logo{
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+
+.logo{
+    width: 20%;
+    margin: 0 30px;
+}
+
+
+.input-group {
+    display: block;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.form-section{
+    margin-bottom: 20px;
+}
+
+.form-section input{
+    width: 20%;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.grid-item {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.grid-item h3 {
+    margin-top: 0;
+}
+
+.notes textarea {
+    height: 70%;
+    resize: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    margin: 5px 0;
+}
+
+input[type="checkbox"] {
+    width: 16px; /* Define a largura fixa */
+    height: 16px; /* Define a altura fixa */
+    margin: 5px; /* Remove margens extras */
+    padding: 0; /* Remove preenchimentos extras */
+    box-sizing: border-box; /* Garante que as bordas sejam contabilizadas corretamente */
+}
+
+.footer-notes {
+    margin-top: 20px;
+}
+
+.footer-notes textarea{
+    resize: none;
+}
+
+.navegacao{
+    display: flex;
+    justify-content: center;
+    gap:80px ;
+    margin-top: 20px;  
+}
