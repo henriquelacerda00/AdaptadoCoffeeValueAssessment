@@ -41,6 +41,12 @@ function calcularPorcentagem(gramasId, porcentagemId) {
     const porcentagemElement = document.getElementById(porcentagemId);
     const sobrasElement = document.getElementById('sobras'); // Verifica o ID do campo "sobras".
 
+    // Verifica se o campo 'sobras' está vazio
+    if (sobrasElement.value === "" || isNaN(sobrasElement.value)) {
+        alert("Por favor, preencha o campo 'Peso sem defeitos' (sobras) antes de calcular a porcentagem.");
+        return; // Interrompe a execução da função se o campo estiver vazio.
+    }
+
     // Obtém os valores
     const gramasValue = parseFloat(gramasElement.value) || 0;
     const sobrasValue = parseFloat(sobrasElement.value) || 1; // Evitar divisão por 0.
@@ -51,6 +57,7 @@ function calcularPorcentagem(gramasId, porcentagemId) {
     // Exibe o resultado no campo de porcentagem correspondente
     porcentagemElement.value = porcentagemValue.toFixed(1);
 }
+
 
 
 //gerar excel 
