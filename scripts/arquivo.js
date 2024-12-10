@@ -49,7 +49,7 @@ function calcularPorcentagem(gramasId, porcentagemId) {
     const porcentagemValue = (gramasValue / sobrasValue) * 100;
 
     // Exibe o resultado no campo de porcentagem correspondente
-    porcentagemElement.value = porcentagemValue;
+    porcentagemElement.value = porcentagemValue.toFixed(1);
 }
 
 
