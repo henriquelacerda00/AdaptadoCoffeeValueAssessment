@@ -79,12 +79,14 @@ function gerarExcel() {
     rows.forEach(row => {
         const cells = row.querySelectorAll('td');
         const rowData = Array.from(cells).map(cell => {
-            // Verifica se a célula é um campo de input e pega o valor
             const input = cell.querySelector('input');
-            return input ? input.value || '0' : cell.textContent;
-        });
+            return input ? input.value || '0' : null; // Pega somente os valores do input
+        }).filter(value => value !== null); // Remove valores nulos (sem input)
         tableData.push(rowData);
     });
+
+    // Achata a tabela de dados para exibição horizontal
+    const flatTableData = tableData.reduce((acc, row) => acc.concat(row), []);
 
     // Captura os dados da tabela de tamanhos
     const sizeTableData = [];
@@ -93,21 +95,33 @@ function gerarExcel() {
         const sizeCells = row.querySelectorAll('td');
         const sizeRowData = Array.from(sizeCells).map(cell => {
             const input = cell.querySelector('input');
-            return input ? input.value || '0' : cell.textContent;
-        });
+            return input ? input.value || '0' : null; // Pega somente os valores do input
+        }).filter(value => value !== null); // Remove valores nulos (sem input)
         sizeTableData.push(sizeRowData);
     });
 
-    // Dados para a planilha
+    // Achata a tabela de tamanhos para exibição horizontal
+    const flatSizeTableData = sizeTableData.reduce((acc, row) => acc.concat(row), []);
+
+    // Captura o valor do input com id 'total-geral' e coloca em um novo array 'totalGreen'
+    const totalGreen = [];
+    const totalGeralInput = document.getElementById('totalGeral');
+    totalGreen.push(totalGeralInput ? totalGeralInput.value || '0' : '0');
+
+    // Remove o valor do total-geral de flatTableData
+    const totalGeralIndex = flatTableData.indexOf(totalGreen[0]);
+    if (totalGeralIndex !== -1) {
+        flatTableData.splice(totalGeralIndex, 1); // Remove o valor do total-geral de flatTableData
+    }
+
+    // Reorganiza os dados para exibição lado a lado
     const worksheetData = [
-        ['Sample Number', sampleNumber],
-        ['Colors', colorsString],
-        [], // Linha vazia para separação
-        ['Physical Defects', 'Ratio', 'Defect Count', 'Full Defects', 'TOTAL GREEN DEFECTS'],
-        ...tableData,
-        [], // Linha vazia para separar as duas seções
-        ['Size', 'g', '%'], // Cabeçalhos da tabela de tamanhos
-        ...sizeTableData // Adicionando apenas uma vez a tabela de tamanhos
+        ['Código da amostra', 'cor', 'Defect Count Full Black', 'Defect Count Full Sour', 'Dried Cher', 'Fungus Damaged', 'Foreign Matter', 'Severe Instability', 'Partial Black', 'Partial Sour', 'Parchment', 'Floater', 'Immature', 'Withered', 'Shell', 'Broken', 'Hull / Husk',
+            'Slight Insect Damage', 'Total Count fullblack', 'Total Count full sour', 'Dried Cher', 'Fungus Damaged', 'Foreign Matter', 'Severe Instability', 'Partial Black', 'Partial Sour', 'Parchment', 'Floater', 'Immature', 'Withered', 'Shell', 'Broken', 'Hull / Husk',
+            'Slight Insect Damage', 'Total Green Defects', 'size#10 Gramas', 'size#10 Porcentagem', 'size#11 Gramas', 'size#11 Porcentagem', 'size#12 Gramas', 'size#12 Porcentagem', 'size#13 Gramas', 'size#13 Porcentagem', 'size#14 Gramas', 'size#14 Porcentagem', 'size#15 Gramas', 'size#15 Porcentagem', 'size#16 Gramas', 'size#16 Porcentagem', 'size#17 Gramas', 'size#17 Porcentagem', 'size#18 Gramas', 'size#18 Porcentagem', 'size#19 Gramas', 'size#19 Porcentagem', 'size#20 Gramas', 'size#20 Porcentagem', 'size#21 Gramas', 'size#21 Porcentagem', 'size#22 Gramas', 'size#22 Porcentagem', 'size#23 Gramas', 'size#23 Porcentagem'
+        ],
+        [sampleNumber, colorsString, ...flatTableData, ...totalGreen, ...flatSizeTableData], // Insere o array totalGreen entre flatTableData e flatSizeTableData
+        [], // Linha vazia para separação 
     ];
 
     // Cria a planilha
@@ -115,6 +129,7 @@ function gerarExcel() {
     const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Physical Assessment');
 
+    // Ajuste das larguras das colunas
     const columnWidths = worksheetData[0].map((col, index) => {
         let maxLength = 0;
         worksheetData.forEach(row => {
@@ -125,7 +140,7 @@ function gerarExcel() {
         return maxLength < 10 ? 10 : maxLength + 2; // Ajuste a largura mínima
     });
 
-    worksheet['!cols'] = columnWidths.map(width => ({ wpx: width * 5 })); // Multiplica por 10 para ajustar em pixels
+    worksheet['!cols'] = columnWidths.map(width => ({ wpx: width * 10 })); // Ajuste em pixels
 
     // Definir estilo para quebra automática de linha
     worksheet['!rows'] = worksheetData.map(row => ({
@@ -135,4 +150,3 @@ function gerarExcel() {
     // Salva o arquivo
     XLSX.writeFile(workbook, 'Physical_Assessment.xlsx');
 }
-
