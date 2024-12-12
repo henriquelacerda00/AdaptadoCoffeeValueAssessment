@@ -59,10 +59,17 @@ h2 {
 .sample-number input{
     width: 50px !important;
 }
+
+form{
+    display: flex;
+    min-width: 700px;
+    max-width: 800px;
+    align-items: center;
+}
 /* Estilo geral para tabelas */
 table {
     flex-direction: flex;
-    width: 80%; /* Faz a tabela ocupar toda a largura do container */
+    width: 100%; /* Faz a tabela ocupar toda a largura do container */
     border-collapse: collapse; /* Remove os espaços entre as bordas das células */
     margin-top: 20px; /* Adiciona espaçamento acima da tabela */
     margin-bottom: 10px;
@@ -185,6 +192,7 @@ input[type="number"] {
     align-items: center;
     gap: 10px; /* Espaçamento entre os itens */
     margin-top: 20px; /* Espaçamento acima da seção */
+    
   }
   
   button {

@@ -9,7 +9,7 @@
 <body>
   <script src="scripts/arquivo.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
-    <div class="container">
+      <div class="container">
         <!-- Logo e Título -->
         <header>
             <div class="logo-container">
@@ -53,125 +53,127 @@
               <label><input type="checkbox" value="Brownish"> Brownish</label>
             </div>          
         </div> 
-    <div class="conteudo-central">
-          <table class="tabela">
-            <thead>
-              <tr>
-                <th>Physical Defects</th>
-                <th>Ratio</th>
-                <th>Defect Count</th>
-                <th>Full Defects</th>
-                <th>TOTAL GREEN DEFECTS </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr data-ratio="1">
-                <td>Full Black</td>
-                <td>(1:1)</td>
-                <td><input id="count-1" type="number" placeholder="0" oninput="calcularTotal('count-1', 'total-1')"></td>
-                <td><input id="total-1" type="number" disabled></td>
-                <td><input id="totalGeral" type="number"></td>
-              </tr>
-              <tr data-ratio="1">
-                <td>Full Sour</td>
-                <td>(1:1)</td>
-                <td><input id="count-2" type="number" placeholder="0" oninput="calcularTotal('count-2','total-2')"></td>
-                <td><input id="total-2" type="number" disabled></td>
-              </tr>
-              <tr data-ratio="1">
-                <td>Dried Cherry</td>
-                <td>(1:1)</td>
-                <td><input id="count-3" type="number" placeholder="0" oninput="calcularTotal('count-3','total-3')"></td>
-                <td><input id="total-3" type="number" disabled></td>
-              </tr>
+          <div class="conteudo-central">
+            <form id="form">
+              <table class="tabela">
+                <thead>
+                  <tr>
+                    <th>Physical Defects</th>
+                    <th>Ratio</th>
+                    <th>Defect Count</th>
+                    <th>Full Defects</th>
+                    <th>TOTAL GREEN DEFECTS </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-ratio="1">
+                    <td>Full Black</td>
+                    <td>(1:1)</td>
+                    <td><input id="count-1" type="number" placeholder="0" oninput="calcularTotal('count-1', 'total-1')"></td>
+                    <td><input id="total-1" type="number" disabled></td>
+                    <td><input id="totalGeral" type="number"></td>
+                  </tr>
+                  <tr data-ratio="1">
+                    <td>Full Sour</td>
+                    <td>(1:1)</td>
+                    <td><input id="count-2" type="number" placeholder="0" oninput="calcularTotal('count-2','total-2')"></td>
+                    <td><input id="total-2" type="number" disabled></td>
+                  </tr>
+                  <tr data-ratio="1">
+                    <td>Dried Cherry</td>
+                    <td>(1:1)</td>
+                    <td><input id="count-3" type="number" placeholder="0" oninput="calcularTotal('count-3','total-3')"></td>
+                    <td><input id="total-3" type="number" disabled></td>
+                  </tr>
+                  </div>
+                  <tr data-ratio="1">
+                    <td>Fungus Damage</td>
+                    <td>(1:1)</td>
+                    <td><input id="count-4" type="number" placeholder="0" oninput="calcularTotal('count-4', 'total-4')"></td>   
+                    <td><input id="total-4" type="number" disabled></td> 
+                </tr>
+                  <tr data-ratio="1">
+                      <td>Foreign Matter</td>
+                      <td>(1:1)</td>
+                      <td><input id="count-5" type="number" placeholder="0" oninput="calcularTotal('count-5','total-5')"></td>   
+                      <td><input id="total-5" type="number"></td> 
+                  </tr>
+                  <tr data-ratio="5">
+                    <td>Severe Insect Damage</td>
+                    <td>(5:1)</td>
+                    <td><input id="count-6" type="number" placeholder="0" oninput="calcularTotal('count-6', 'total-6')"></td>   
+                    <td><input id="total-6" type="number" disabled></td> 
+                </tr>
+                  <tr data-ratio="3">
+                      <td>Partial Black</td>
+                      <td>(3:1)</td>
+                      <td><input id="count-7" type="number" placeholder="0"oninput="calcularTotal('count-7','total-7')"></td>   
+                      <td><input id="total-7" type="number"></td> 
+                  </tr>
+                  <tr data-ratio="3">
+                      <td>Partial Sour</td>
+                      <td>(3:1)</td>
+                      <td><input id="count-8" type="number" placeholder="0"oninput="calcularTotal('count-8','total-8')"></td>   
+                      <td><input id="total-8" type="number"></td> 
+                  </tr>
+                  <tr data-ratio="5">
+                      <td>Parchment</td>
+                      <td>(5:1)</td>
+                      <td><input id="count-9" type="number" placeholder="0"oninput="calcularTotal('count-9','total-9')"></td>   
+                      <td><input id="total-9" type="number"></td> 
+                  </tr>
+                  <tr data-ratio="5">
+                      <td>Floater</td>
+                      <td>(5:1)</td>
+                      <td><input id="count-10" type="number" placeholder="0"oninput="calcularTotal('count-10','total-10')"></td>   
+                      <td><input id="total-10" type="number"></td> 
+                  </tr>
+                  <tr data-ratio="5">
+                      <td>Immature/unripe</td>
+                      <td>(5:1)</td>
+                      <td><input id="count-11" type="number" placeholder="0"oninput="calcularTotal('count-11','total-11')"></td>   
+                      <td><input id="total-11" type="number"></td> 
+                  </tr>
+                  <tr data-ratio="5">
+                      <td>Withered</td>
+                      <td>(5:1)</td>
+                      <td><input id="count-12" type="number" placeholder="0"oninput="calcularTotal('count-12','total-12')"></td>   
+                      <td><input id="total-12" type="number"></td> 
+                  </tr>
+                  <tr data-ratio="5">
+                      <td>Shell</td>
+                      <td>(5:1)</td>
+                      <td><input id="count-13" type="number" placeholder="0"oninput="calcularTotal('count-13','total-13')"></td>   
+                      <td><input id="total-13" type="number"></td> 
+                  </tr>
+                  <tr data-ratio="5">
+                      <td>Broken / Chipped / Cut</td>
+                      <td>(5:1)</td>
+                      <td><input id="count-14" type="number" placeholder="0"oninput="calcularTotal('count-14','total-14')"></td>   
+                      <td><input id="total-14" type="number"></td> 
+                  </tr>
+                  <tr data-ratio="5">
+                      <td>Hull / Husk</td>
+                      <td>(5:1)</td>
+                      <td><input id="count-15" type="number" placeholder="0"oninput="calcularTotal('count-15','total-15')"></td>   
+                      <td><input id="total-15" type="number"></td> 
+                  </tr>
+                  <tr data-ratio="10">
+                      <td>Slight Insect Damage</td>
+                      <td>(10:1)</td>
+                      <td><input id="count-16" type="number" placeholder="0"oninput="calcularTotal('count-16','total-16')"></td>   
+                      <td><input id="total-16" type="number"></td> 
+                  </tr>            
+                </tbody>
+              </table>
+              <div class="conteiner-ancoras">
+                <a href="descriptive-Form.html" style="margin-left: 20px; text-decoration: none; font-weight: bold; color: blue;">
+                Próxima Parte ➡️
+                </a>
+                <button type="button" onclick="gerarExcel()">Gerar Planilha</button>
               </div>
-              <tr data-ratio="1">
-                <td>Fungus Damage</td>
-                <td>(1:1)</td>
-                <td><input id="count-4" type="number" placeholder="0" oninput="calcularTotal('count-4', 'total-4')"></td>   
-                <td><input id="total-4" type="number" disabled></td> 
-            </tr>
-              <tr data-ratio="1">
-                  <td>Foreign Matter</td>
-                  <td>(1:1)</td>
-                  <td><input id="count-5" type="number" placeholder="0" oninput="calcularTotal('count-5','total-5')"></td>   
-                  <td><input id="total-5" type="number"></td> 
-              </tr>
-              <tr data-ratio="5">
-                <td>Severe Insect Damage</td>
-                <td>(5:1)</td>
-                <td><input id="count-6" type="number" placeholder="0" oninput="calcularTotal('count-6', 'total-6')"></td>   
-                <td><input id="total-6" type="number" disabled></td> 
-            </tr>
-              <tr data-ratio="3">
-                  <td>Partial Black</td>
-                  <td>(3:1)</td>
-                  <td><input id="count-7" type="number" placeholder="0"oninput="calcularTotal('count-7','total-7')"></td>   
-                  <td><input id="total-7" type="number"></td> 
-              </tr>
-              <tr data-ratio="3">
-                  <td>Partial Sour</td>
-                  <td>(3:1)</td>
-                  <td><input id="count-8" type="number" placeholder="0"oninput="calcularTotal('count-8','total-8')"></td>   
-                  <td><input id="total-8" type="number"></td> 
-              </tr>
-              <tr data-ratio="5">
-                  <td>Parchment</td>
-                  <td>(5:1)</td>
-                  <td><input id="count-9" type="number" placeholder="0"oninput="calcularTotal('count-9','total-9')"></td>   
-                  <td><input id="total-9" type="number"></td> 
-              </tr>
-              <tr data-ratio="5">
-                  <td>Floater</td>
-                  <td>(5:1)</td>
-                  <td><input id="count-10" type="number" placeholder="0"oninput="calcularTotal('count-10','total-10')"></td>   
-                  <td><input id="total-10" type="number"></td> 
-              </tr>
-              <tr data-ratio="5">
-                  <td>Immature/unripe</td>
-                  <td>(5:1)</td>
-                  <td><input id="count-11" type="number" placeholder="0"oninput="calcularTotal('count-11','total-11')"></td>   
-                  <td><input id="total-11" type="number"></td> 
-              </tr>
-              <tr data-ratio="5">
-                  <td>Withered</td>
-                  <td>(5:1)</td>
-                  <td><input id="count-12" type="number" placeholder="0"oninput="calcularTotal('count-12','total-12')"></td>   
-                  <td><input id="total-12" type="number"></td> 
-              </tr>
-              <tr data-ratio="5">
-                  <td>Shell</td>
-                  <td>(5:1)</td>
-                  <td><input id="count-13" type="number" placeholder="0"oninput="calcularTotal('count-13','total-13')"></td>   
-                  <td><input id="total-13" type="number"></td> 
-              </tr>
-              <tr data-ratio="5">
-                  <td>Broken / Chipped / Cut</td>
-                  <td>(5:1)</td>
-                  <td><input id="count-14" type="number" placeholder="0"oninput="calcularTotal('count-14','total-14')"></td>   
-                  <td><input id="total-14" type="number"></td> 
-              </tr>
-              <tr data-ratio="5">
-                  <td>Hull / Husk</td>
-                  <td>(5:1)</td>
-                  <td><input id="count-15" type="number" placeholder="0"oninput="calcularTotal('count-15','total-15')"></td>   
-                  <td><input id="total-15" type="number"></td> 
-              </tr>
-              <tr data-ratio="10">
-                  <td>Slight Insect Damage</td>
-                  <td>(10:1)</td>
-                  <td><input id="count-16" type="number" placeholder="0"oninput="calcularTotal('count-16','total-16')"></td>   
-                  <td><input id="total-16" type="number"></td> 
-              </tr>            
-            </tbody>
-          </table>
-          <div class="conteiner-ancoras">
-            <a href="descriptive-Form.html" style="margin-left: 20px; text-decoration: none; font-weight: bold; color: blue;">
-            Próxima Parte ➡️
-            </a>
-            <button type="button" onclick="gerarExcel()">Gerar Planilha</button>
-          </div>
-      </div>
+            </form>
+          </div>  
          <!-- Âncora para a próxima parte do formulário -->
         
       
