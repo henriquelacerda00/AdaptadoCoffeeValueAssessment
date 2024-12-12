@@ -42,7 +42,9 @@ h2 {
     font-size: 14px; /* Tamanho da fonte menor */
     color: #555; /* Cor cinza médio */
     margin-bottom: 20px; /* Adiciona espaçamento inferior */
+    text-wrap: wrap;
 }
+
 
 /* Estilo para o texto "Based on a 350g sample" */
 .sample-info {
@@ -189,10 +191,11 @@ input[type="number"] {
 .conteiner-ancoras {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Alinha todos os itens horizontalmente no centro */
+    justify-content: center; /* Garante que os itens sejam alinhados no centro verticalmente também */
+    text-align: center;
     gap: 10px; /* Espaçamento entre os itens */
     margin-top: 20px; /* Espaçamento acima da seção */
-    
   }
   
   button {
@@ -203,6 +206,8 @@ input[type="number"] {
     color: white;
     border: none;
     border-radius: 5px;
+    width: auto; /* Para garantir que o botão tenha o tamanho apropriado */
+    text-align: center; /* Alinha o texto do botão */
   }
   
   a {
@@ -210,5 +215,12 @@ input[type="number"] {
     color: blue;
     text-decoration: none;
     font-size: 18px;
+    display: block;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Garante que o texto e a seta fiquem centralizados */
+    white-space: nowrap; /* Impede quebra de linha no texto */
+    padding: 5px 10px; /* Pode adicionar o mesmo padding para consistência */
+    width: auto; /* Garante o tamanho adequado */
+
   }
   
