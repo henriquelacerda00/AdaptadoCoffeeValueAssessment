@@ -39,12 +39,23 @@ h2 {
 
 /* Estilo para textos descritivos gerais */
 .description {
-    font-size: 14px; /* Tamanho da fonte menor */
-    color: #555; /* Cor cinza médio */
-    margin-bottom: 20px; /* Adiciona espaçamento inferior */
-    text-wrap: wrap;
-}
+    font-size: 16px;
+    line-height: 1.5; /* Ajusta o espaçamento entre linhas */
+    text-align: justify; /* Justifica o texto */
+    margin-top: 20px; /* Espaçamento superior */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    color: #333; /* Cor do texto */
+  }
 
+.description a {
+    color: blue; /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado */
+    display: inline; /* Garante que o link fique na mesma linha */
+  }
+
+.description a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+  }
 
 /* Estilo para o texto "Based on a 350g sample" */
 .sample-info {
