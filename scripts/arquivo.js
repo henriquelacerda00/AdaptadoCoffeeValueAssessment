@@ -61,7 +61,7 @@ function calcularPorcentagem(gramasId, porcentagemId) {
 
 
 //gerar excel 
-function gerarExcel() {
+async function enviarParaGoogleSheets() {
     // Captura o número da amostra
     const sampleNumber = document.getElementById('sample-number').value || 'N/A';
 
@@ -114,39 +114,28 @@ function gerarExcel() {
         flatTableData.splice(totalGeralIndex, 1); // Remove o valor do total-geral de flatTableData
     }
 
-    // Reorganiza os dados para exibição lado a lado
-    const worksheetData = [
-        ['Código da amostra', 'cor', 'Defect Count Full Black', 'Defect Count Full Sour', 'Dried Cher', 'Fungus Damaged', 'Foreign Matter', 'Severe Instability', 'Partial Black', 'Partial Sour', 'Parchment', 'Floater', 'Immature', 'Withered', 'Shell', 'Broken', 'Hull / Husk',
-            'Slight Insect Damage', 'Total Count fullblack', 'Total Count full sour', 'Dried Cher', 'Fungus Damaged', 'Foreign Matter', 'Severe Instability', 'Partial Black', 'Partial Sour', 'Parchment', 'Floater', 'Immature', 'Withered', 'Shell', 'Broken', 'Hull / Husk',
-            'Slight Insect Damage', 'Total Green Defects', 'size#10 Gramas', 'size#10 Porcentagem', 'size#11 Gramas', 'size#11 Porcentagem', 'size#12 Gramas', 'size#12 Porcentagem', 'size#13 Gramas', 'size#13 Porcentagem', 'size#14 Gramas', 'size#14 Porcentagem', 'size#15 Gramas', 'size#15 Porcentagem', 'size#16 Gramas', 'size#16 Porcentagem', 'size#17 Gramas', 'size#17 Porcentagem', 'size#18 Gramas', 'size#18 Porcentagem', 'size#19 Gramas', 'size#19 Porcentagem', 'size#20 Gramas', 'size#20 Porcentagem', 'size#21 Gramas', 'size#21 Porcentagem', 'size#22 Gramas', 'size#22 Porcentagem', 'size#23 Gramas', 'size#23 Porcentagem'
-        ],
-        [sampleNumber, colorsString, ...flatTableData, ...totalGreen, ...flatSizeTableData], // Insere o array totalGreen entre flatTableData e flatSizeTableData
-        [], // Linha vazia para separação 
+    // Reorganiza os dados para envio
+    const rowData = [
+        sampleNumber, colorsString, ...flatTableData, ...totalGreen, ...flatSizeTableData
     ];
 
-    // Cria a planilha
-    const workbook = XLSX.utils.book_new();
-    const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Physical Assessment');
-
-    // Ajuste das larguras das colunas
-    const columnWidths = worksheetData[0].map((col, index) => {
-        let maxLength = 0;
-        worksheetData.forEach(row => {
-            if (row[index] && row[index].length > maxLength) {
-                maxLength = row[index].length;
-            }
+    try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbzc9vpDooWkd_0NNKn8hdaKcFV-nEW-eqmpej3UemA/dev', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(rowData),
         });
-        return maxLength < 10 ? 10 : maxLength + 2; // Ajuste a largura mínima
-    });
 
-    worksheet['!cols'] = columnWidths.map(width => ({ wpx: width * 10 })); // Ajuste em pixels
-
-    // Definir estilo para quebra automática de linha
-    worksheet['!rows'] = worksheetData.map(row => ({
-        hpt: 25 // Altura da linha (pode ser ajustada)
-    }));
-
-    // Salva o arquivo
-    XLSX.writeFile(workbook, 'Physical_Assessment.xlsx');
+        const result = await response.json();
+        if (result.status === 'success') {
+            alert('Dados enviados com sucesso para o Google Sheets!');
+        } else {
+            alert('Erro ao enviar os dados. Tente novamente.');
+        }
+    } catch (error) {
+        console.error('Erro ao enviar para o Google Sheets:', error);
+        alert('Ocorreu um erro. Verifique o console para mais detalhes.');
+    }
 }
