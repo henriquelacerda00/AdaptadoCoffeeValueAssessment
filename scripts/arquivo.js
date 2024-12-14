@@ -120,7 +120,8 @@ async function enviarParaGoogleSheets() {
     ];
 
     try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbzc9vpDooWkd_0NNKn8hdaKcFV-nEW-eqmpej3UemA/dev', {
+        // Substitua pela URL do proxy hospedado no Vercel
+        const response = await fetch('https://adaptado-coffee-value-assessment-meftkyqvc.vercel.app', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -135,7 +136,7 @@ async function enviarParaGoogleSheets() {
             alert('Erro ao enviar os dados. Tente novamente.');
         }
     } catch (error) {
-        console.error('Erro ao enviar para o Google Sheets:', error);
-        alert('Ocorreu um erro. Verifique o console para mais detalhes.');
+        console.error('Erro ao enviar para o Google Sheets via Proxy:', error);
+        alert('Ocorreu um erro ao enviar os dados via proxy. Verifique o console.');
     }
 }
