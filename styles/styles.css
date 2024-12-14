@@ -18,6 +18,12 @@ body {
     
 }
 
+.dados-formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 /* Estilo para o cabeçalho, incluindo logo, título e subtítulo */
 header {
     text-align: center; /* Centraliza todo o conteúdo dentro do cabeçalho */
