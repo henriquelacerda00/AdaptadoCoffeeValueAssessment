@@ -86,7 +86,7 @@ async function enviarParaGoogleSheets() {
     });
 
     // Achata a tabela de dados para exibição horizontal
-    const flatTableData = tableData.reduce((acc, row) => acc.concat(row), []);
+    const flatTableData = tableData.reduce((acc, row) => acc.concat(row), []); // Achata os dados
 
     // Captura os dados da tabela de tamanhos
     const sizeTableData = [];
@@ -101,7 +101,7 @@ async function enviarParaGoogleSheets() {
     });
 
     // Achata a tabela de tamanhos para exibição horizontal
-    const flatSizeTableData = sizeTableData.reduce((acc, row) => acc.concat(row), []);
+    const flatSizeTableData = sizeTableData.reduce((acc, row) => acc.concat(row), []); // Achata os dados
 
     // Captura o valor do input com id 'total-geral' e coloca em um novo array 'totalGreen'
     const totalGreen = [];
@@ -121,7 +121,7 @@ async function enviarParaGoogleSheets() {
 
     try {
         // Substitua pela URL do proxy hospedado no Vercel
-        const response = await fetch('https://adaptado-coffee-value-assessment-meftkyqvc.vercel.app', { 
+        const response = await fetch('https://adaptado-coffee-value-assessment.vercel.app/api/proxy', { // URL do Vercel
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
