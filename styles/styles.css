@@ -159,10 +159,12 @@ input[type="number"] {
     font-size: 12px; /* Texto menor para instruções */
     color: #666; /* Cor cinza claro */
     margin-top: 5px; /* Espaçamento superior */
+    
 }
 
 .moisture-section input{
     width: 15%;
+    margin-bottom: 5px;
 }
 
 /* ---------- Estilo da tabela Size ---------- */
