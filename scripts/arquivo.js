@@ -59,9 +59,8 @@ function calcularPorcentagem(gramasId, porcentagemId) {
 }
 
 
-
-//gerar excel 
-async function enviarParaGoogleSheets() {
+// Função para enviar dados para a aba Physical_Assessment
+async function enviarParaPhysicalAssessment() {
     // Captura o número da amostra
     const sampleNumber = document.getElementById('sample-number').value || 'N/A';
 
@@ -88,6 +87,49 @@ async function enviarParaGoogleSheets() {
     // Achata a tabela de dados para exibição horizontal
     const flatTableData = tableData.reduce((acc, row) => acc.concat(row), []); // Achata os dados
 
+    // Captura o valor do input com id 'total-geral' e coloca em um novo array 'totalGreen'
+    const totalGreen = [];
+    const totalGeralInput = document.getElementById('totalGeral');
+    totalGreen.push(totalGeralInput ? totalGeralInput.value || '0' : '0');
+
+    // Remove o valor do total-geral de flatTableData
+    const totalGeralIndex = flatTableData.indexOf(totalGreen[0]);
+    if (totalGeralIndex !== -1) {
+        flatTableData.splice(totalGeralIndex, 1); // Remove o valor do total-geral de flatTableData
+    }
+
+    // Reorganiza os dados para envio
+    const rowData = [
+        sampleNumber, colorsString, ...flatTableData, ...totalGreen
+    ];
+
+    try {
+        // Envia os dados para a aba Physical_Assessment
+        const response = await fetch('https://adaptado-coffee-value-assessment.vercel.app/api/proxy', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ aba: 'Physical_Assessment', data: rowData }),
+        });
+
+        const result = await response.json();
+        if (result.status === 'success') {
+            alert('Dados enviados com sucesso para a aba Physical_Assessment!');
+        } else {
+            alert('Erro ao enviar os dados. Tente novamente.');
+        }
+    } catch (error) {
+        console.error('Erro ao enviar para o Google Sheets via Proxy:', error);
+        alert('Ocorreu um erro ao enviar os dados via proxy. Verifique o console.');
+    }
+}
+
+// Função para enviar dados para a aba size-table
+async function enviarParaSizeTable() {
+    // Captura o número da amostra
+    const sampleNumber = document.getElementById('sample-number').value || 'N/A';
+
     // Captura os dados da tabela de tamanhos
     const sizeTableData = [];
     const sizeRows = document.querySelectorAll('.size-table tbody tr');
@@ -103,35 +145,24 @@ async function enviarParaGoogleSheets() {
     // Achata a tabela de tamanhos para exibição horizontal
     const flatSizeTableData = sizeTableData.reduce((acc, row) => acc.concat(row), []); // Achata os dados
 
-    // Captura o valor do input com id 'total-geral' e coloca em um novo array 'totalGreen'
-    const totalGreen = [];
-    const totalGeralInput = document.getElementById('totalGeral');
-    totalGreen.push(totalGeralInput ? totalGeralInput.value || '0' : '0');
-
-    // Remove o valor do total-geral de flatTableData
-    const totalGeralIndex = flatTableData.indexOf(totalGreen[0]);
-    if (totalGeralIndex !== -1) {
-        flatTableData.splice(totalGeralIndex, 1); // Remove o valor do total-geral de flatTableData
-    }
-
     // Reorganiza os dados para envio
     const rowData = [
-        sampleNumber, colorsString, ...flatTableData, ...totalGreen, ...flatSizeTableData
+        sampleNumber, ...flatSizeTableData
     ];
 
     try {
-        // Substitua pela URL do proxy hospedado no Vercel
-        const response = await fetch('https://adaptado-coffee-value-assessment.vercel.app/api/proxy', { // URL do Vercel
+        // Envia os dados para a aba size-table
+        const response = await fetch('https://adaptado-coffee-value-assessment.vercel.app/api/proxy', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(rowData),
+            body: JSON.stringify({ aba: 'size-table', data: rowData }),
         });
 
         const result = await response.json();
         if (result.status === 'success') {
-            alert('Dados enviados com sucesso para o Google Sheets!');
+            alert('Dados enviados com sucesso para a aba size-table!');
         } else {
             alert('Erro ao enviar os dados. Tente novamente.');
         }
