@@ -35,7 +35,7 @@
         <p class="description">
           Thank you for testing Alpha V1 of the Physical Assessment, one of four assessments to be completed under the SCA's Coffee Value Assessment System. The SCA anticipates conducting user research on this assessment in 2024.
           To learn more, please visit <strong><a href="https://sca.coffee/value-assessment" target="_blank">sca.coffee/value-assessment</a></strong>.
-      </p>
+        </p>
 
         <!-- Baseado em amostra -->
         <p class="sample-info"><strong>Based on a 350g sample</strong></p>
@@ -179,7 +179,7 @@
                 <a href="descriptive-Form.html" style="text-decoration: none; font-weight: bold; color: blue;">
                 Próxima Parte<br>➡️
                 </a>
-                <button type="button" onclick="enviarParaPhysicalAssessment()">Enviar dados PhysicalAssessment</button>
+                <button type="button" onclick="enviarParaPhysicalAssessment()">Enviar dados Physical Assessment</button>
               </div>
             </form>
           </div>  
@@ -274,9 +274,10 @@
                 <td>#23</td>
                 <td><input id="gramas-23" type="number" oninput="calcularPorcentagem('gramas-23', 'porcentagem-23')" /></td>
                 <td><input id="porcentagem-23" type="number" readonly /></td>
-              </tr>
-              <button type="button" onclick="enviarParaSizeTable()">Enviar dados size table</button>                
+              </tr>                
             </tbody>
-    </div>
+            <button type="button" id="buttom-sizeTabe" onclick="enviarParaSizeTable()">Enviar dados size table</button>
+          </div>
+          
 </body>
 </html>
