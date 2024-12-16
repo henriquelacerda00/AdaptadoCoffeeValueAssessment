@@ -176,7 +176,6 @@ input[type="number"] {
     font-weight: normal; /* Deixa a fonte no peso padrão */
     border-collapse: collapse; /* Remove o espaçamento entre as bordas das células */
     width: 80%; /* Ajusta a largura da tabela */
-    position: absolute;
 }
 
 /* Estiliza os cabeçalhos e células da tabela */
