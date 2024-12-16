@@ -60,7 +60,19 @@ function calcularPorcentagem(gramasId, porcentagemId) {
 
 
 // Função para enviar dados para a aba Physical_Assessment
+// Função auxiliar para capturar os dados do cabeçalho
+function capturarDadosCabecalho() {
+    const name = document.getElementById('name').value || 'N/A';
+    const date = document.getElementById('date').value || 'N/A';
+    const purpose = document.getElementById('purpose').value || 'N/A';
+    return [name, date, purpose];
+}
+
+// Função para enviar dados para a aba Physical_Assessment
 async function enviarParaPhysicalAssessment() {
+    // Captura os dados do cabeçalho
+    const headerData = capturarDadosCabecalho();
+
     // Captura o número da amostra
     const sampleNumber = document.getElementById('sample-number').value || 'N/A';
 
@@ -100,7 +112,11 @@ async function enviarParaPhysicalAssessment() {
 
     // Reorganiza os dados para envio
     const rowData = [
-        sampleNumber, colorsString, ...flatTableData, ...totalGreen
+        ...headerData, // Adiciona os dados do cabeçalho primeiro
+        sampleNumber, 
+        colorsString, 
+        ...flatTableData, 
+        ...totalGreen
     ];
 
     try {
@@ -127,6 +143,9 @@ async function enviarParaPhysicalAssessment() {
 
 // Função para enviar dados para a aba size-table
 async function enviarParaSizeTable() {
+    // Captura os dados do cabeçalho
+    const headerData = capturarDadosCabecalho();
+
     // Captura o número da amostra
     const sampleNumber = document.getElementById('sample-number').value || 'N/A';
 
@@ -147,7 +166,9 @@ async function enviarParaSizeTable() {
 
     // Reorganiza os dados para envio
     const rowData = [
-        sampleNumber, ...flatSizeTableData
+        ...headerData, // Adiciona os dados do cabeçalho primeiro
+        sampleNumber, 
+        ...flatSizeTableData
     ];
 
     try {
