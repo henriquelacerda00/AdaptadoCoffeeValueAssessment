@@ -68,8 +68,46 @@ function capturarDadosCabecalho() {
     return [name, date, purpose];
 }
 
+function limparFormulario() {
+    // Seleciona todos os inputs, textareas e selects do documento
+    const inputs = document.querySelectorAll('input, textarea, select');
+    
+    inputs.forEach(input => {
+        // Limpa o valor ou desmarca o campo
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            input.checked = false; // Desmarca checkboxes e radios
+        } else {
+            input.value = ''; // Limpa campos de texto, número, etc.
+        }
+    });
+
+    console.log('Formulário limpo com sucesso!');
+}
+
+function formularioEstaVazio() {
+    // Captura todos os inputs e selects do formulário
+    const inputs = document.querySelectorAll('input, select');
+
+    // Verifica se algum input ou select está preenchido
+    for (const input of inputs) {
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            if (input.checked) return false; // Se algum checkbox ou radio estiver marcado
+        } else if (input.value.trim() !== '') {
+            return false; // Se algum input ou select tiver valor
+        }
+    }
+
+    // Se nenhum campo estiver preenchido, retorna true (formulário vazio)
+    return true;
+}
+
 // Função para enviar dados para a aba Physical_Assessment
 async function enviarParaPhysicalAssessment() {
+
+    if (formularioEstaVazio()) {
+        alert('Por favor, preencha pelo menos um campo do formulário antes de enviar.');
+        return; // Interrompe a execução se o formulário estiver vazio
+    }
     // Captura os dados do cabeçalho
     const headerData = capturarDadosCabecalho();
 
@@ -131,6 +169,7 @@ async function enviarParaPhysicalAssessment() {
 
         const result = await response.json();
         if (result.status === 'success') {
+            limparFormulario();
             alert('Dados enviados com sucesso para a aba Physical_Assessment!');
         } else {
             alert('Erro ao enviar os dados. Tente novamente.');
@@ -144,6 +183,11 @@ async function enviarParaPhysicalAssessment() {
 // Função para enviar dados para a aba size-table
 async function enviarParaSizeTable() {
     // Captura os dados do cabeçalho
+
+    if (formularioEstaVazio()) {
+        alert('Por favor, preencha pelo menos um campo do formulário antes de enviar.');
+        return; // Interrompe a execução se o formulário estiver vazio
+    }
     const headerData = capturarDadosCabecalho();
 
     // Captura o número da amostra
@@ -183,6 +227,7 @@ async function enviarParaSizeTable() {
 
         const result = await response.json();
         if (result.status === 'success') {
+            limparFormulario();
             alert('Dados enviados com sucesso para a aba size-table!');
         } else {
             alert('Erro ao enviar os dados. Tente novamente.');
