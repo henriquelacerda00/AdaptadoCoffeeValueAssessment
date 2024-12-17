@@ -179,7 +179,7 @@
                 <a href="descriptive-Form.html" style="text-decoration: none; font-weight: bold; color: blue;">
                 Próxima Parte<br>➡️
                 </a>
-                <button type="button" onclick="enviarParaPhysicalAssessment()">Enviar dados Physical Assessment</button>
+                <button type="button" id="bt-physical" onclick="enviarParaPhysicalAssessment()">Enviar dados Physical Assessment</button>
               </div>
             </form>
           </div>  
@@ -195,8 +195,8 @@
             <input id="sobras" type="number" placeholder="quantidade das sobras">
         </div>
       
-        <!-- Tamanhos -->
-        <table class="size-table">
+        <section class="container-sizeTable">
+          <table class="size-table">
             <thead>
               <tr>
                 <th>Size</th>
@@ -276,8 +276,10 @@
                 <td><input id="porcentagem-23" type="number" readonly /></td>
               </tr>                
             </tbody>
-            <button type="button" id="buttom-sizeTabe" onclick="enviarParaSizeTable()">Enviar dados size table</button>
+          </table>
+          <div class="container-botao-size">
+            <button type="button" class="botao-size" id="bt-sizeTabe" onclick="enviarParaSizeTable()">Enviar dados size table</button>
           </div>
-          
+        </section>  
 </body>
 </html>

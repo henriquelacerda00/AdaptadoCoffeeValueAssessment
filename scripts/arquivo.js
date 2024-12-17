@@ -103,11 +103,13 @@ function formularioEstaVazio() {
 
 // Função para enviar dados para a aba Physical_Assessment
 async function enviarParaPhysicalAssessment() {
+    const botaoEnviar = document.getElementById('bt-physical');
 
     if (formularioEstaVazio()) {
         alert('Por favor, preencha pelo menos um campo do formulário antes de enviar.');
         return; // Interrompe a execução se o formulário estiver vazio
     }
+    botaoEnviar.disabled = true;
     // Captura os dados do cabeçalho
     const headerData = capturarDadosCabecalho();
 
@@ -177,17 +179,20 @@ async function enviarParaPhysicalAssessment() {
     } catch (error) {
         console.error('Erro ao enviar para o Google Sheets via Proxy:', error);
         alert('Ocorreu um erro ao enviar os dados via proxy. Verifique o console.');
+    }finally{
+        botaoEnviar.disabled = false;
     }
 }
 
 // Função para enviar dados para a aba size-table
 async function enviarParaSizeTable() {
-    // Captura os dados do cabeçalho
+    const botaoEnviar = document.getElementById('bt-sizeTabe');
 
     if (formularioEstaVazio()) {
         alert('Por favor, preencha pelo menos um campo do formulário antes de enviar.');
         return; // Interrompe a execução se o formulário estiver vazio
     }
+    botaoEnviar.disabled=true;
     const headerData = capturarDadosCabecalho();
 
     // Captura o número da amostra
@@ -235,5 +240,7 @@ async function enviarParaSizeTable() {
     } catch (error) {
         console.error('Erro ao enviar para o Google Sheets via Proxy:', error);
         alert('Ocorreu um erro ao enviar os dados via proxy. Verifique o console.');
+    } finally{
+        botaoEnviar.disabled=false;
     }
 }
