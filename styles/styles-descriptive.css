@@ -196,6 +196,7 @@ input[type="range"] {
     justify-content: center;
     gap: 5%;
 }
-/* Estilo para notas fixas */
 
-
+.item-ancora{
+    padding: 10px;
+}
