@@ -63,9 +63,17 @@ function calcularPorcentagem(gramasId, porcentagemId) {
 // Função auxiliar para capturar os dados do cabeçalho
 function capturarDadosCabecalho() {
     const name = document.getElementById('name').value || 'N/A';
-    const date = document.getElementById('date').value || 'N/A';
+    
+    // Captura a data do dispositivo (sempre será a data atual)
+    const date = new Date().toLocaleDateString(); // A data do dispositivo será utilizada
+
     const purpose = document.getElementById('purpose').value || 'N/A';
     return [name, date, purpose];
+}
+
+function cabecalhoEstaPreenchido() {
+    const headerData = capturarDadosCabecalho();
+    return headerData.every(campo => campo !== 'N/A' && campo.trim() !== '');
 }
 
 function limparFormulario() {
@@ -104,6 +112,11 @@ function formularioEstaVazio() {
 // Função para enviar dados para a aba Physical_Assessment
 async function enviarParaPhysicalAssessment() {
     const botaoEnviar = document.getElementById('bt-physical');
+
+    if (!cabecalhoEstaPreenchido()) {
+        alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
+        return; // Impede o envio
+    }
 
     if (formularioEstaVazio()) {
         alert('Por favor, preencha pelo menos um campo do formulário antes de enviar.');
@@ -187,6 +200,11 @@ async function enviarParaPhysicalAssessment() {
 // Função para enviar dados para a aba size-table
 async function enviarParaSizeTable() {
     const botaoEnviar = document.getElementById('bt-sizeTabe');
+
+    if (!cabecalhoEstaPreenchido()) {
+        alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
+        return; // Impede o envio
+    }
 
     if (formularioEstaVazio()) {
         alert('Por favor, preencha pelo menos um campo do formulário antes de enviar.');
