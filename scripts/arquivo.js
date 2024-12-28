@@ -227,22 +227,39 @@ async function enviarParaPhysicalAssessment() {
 // Função para enviar dados para a aba size-table
 async function enviarParaSizeTable() {
     const botaoEnviarSize = document.getElementById('bt-sizeTabe');
-    const campoSobras = document.getElementById('sobras').value;
+    const sampleNumberField = document.getElementById('sample-number');
+    const weightField = document.getElementById('sobras')
 
     if (!cabecalhoEstaPreenchido()) {
         alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
         return; // Impede o envio
     }
 
-    if (formularioEstaVazio()) {
-        alert('Por favor, preencha pelo menos um campo do formulário antes de enviar.');
-        return; // Interrompe a execução se o formulário estiver vazio
+    if (!sampleNumberField.value.trim()) {
+        alert('O campo "Sample Number" é obrigatório. Por favor, preencha antes de enviar.');
+        sampleNumberField.focus(); // Foca no campo vazio
+        return; // Interrompe a execução
     }
+
+    if (formularioEstaVazio('.size-Section')) {
+        alert('Por favor, preencha os campos obrigatórios dentro da seção Physical antes de enviar.');
+        return; // Interrompe o envio
+    }
+
+    if(!weightField.value.trim()){
+        alert('O campo de "Weight without deffects:" é obrigatorio.')
+        weightField.focus();
+        return;
+    }
+
+
     botaoEnviarSize.disabled=true;
     const headerData = capturarDadosCabecalho();
 
     // Captura o número da amostra
-    const sampleNumber = document.getElementById('sample-number').value || 'N/A';
+    const sampleNumber = sampleNumberField.value.trim();
+    const WeightWtO = weightField.value.trim();
+    
 
     // Captura os dados da tabela de tamanhos
     const sizeTableData = [];
@@ -262,7 +279,8 @@ async function enviarParaSizeTable() {
     // Reorganiza os dados para envio
     const rowData = [
         ...headerData, // Adiciona os dados do cabeçalho primeiro
-        sampleNumber, 
+        sampleNumber,
+        WeightWtO, 
         ...flatSizeTableData
     ];
 
@@ -278,7 +296,7 @@ async function enviarParaSizeTable() {
 
         const result = await response.json();
         if (result.status === 'success') {
-            limparFormulario2();
+            limparFormularioPorClasse('size-Section');
             alert('Dados enviados com sucesso para a aba size-table!');
         } else {
             alert('Erro ao enviar os dados. Tente novamente.');
