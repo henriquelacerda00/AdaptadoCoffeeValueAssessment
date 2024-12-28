@@ -199,7 +199,7 @@ async function enviarParaPhysicalAssessment() {
 
 // Função para enviar dados para a aba size-table
 async function enviarParaSizeTable() {
-    const botaoEnviar = document.getElementById('bt-sizeTabe');
+    const botaoEnviarSize = document.getElementById('bt-sizeTabe');
 
     if (!cabecalhoEstaPreenchido()) {
         alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
@@ -210,7 +210,7 @@ async function enviarParaSizeTable() {
         alert('Por favor, preencha pelo menos um campo do formulário antes de enviar.');
         return; // Interrompe a execução se o formulário estiver vazio
     }
-    botaoEnviar.disabled=true;
+    botaoEnviarSize.disabled=true;
     const headerData = capturarDadosCabecalho();
 
     // Captura o número da amostra
@@ -259,7 +259,7 @@ async function enviarParaSizeTable() {
         console.error('Erro ao enviar para o Google Sheets via Proxy:', error);
         alert('Ocorreu um erro ao enviar os dados via proxy. Verifique o console.');
     } finally{
-        botaoEnviar.disabled=false;
+        botaoEnviarSize.disabled=false;
     }
 }
 
