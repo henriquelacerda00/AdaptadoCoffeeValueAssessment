@@ -76,9 +76,10 @@ function cabecalhoEstaPreenchido() {
     return headerData.every(campo => campo !== 'N/A' && campo.trim() !== '');
 }
 
-function limparFormulario() {
-    // Seleciona todos os inputs, textareas e selects do documento
-    const inputs = document.querySelectorAll('input, textarea, select');
+function limparFormulario1() {
+    // Seleciona apenas os inputs, textareas e selects dentro do formulário com id 'form-1'
+    const formulario = document.getElementById('form-1');
+    const inputs = formulario.querySelectorAll('input, textarea, select');
     
     inputs.forEach(input => {
         // Limpa o valor ou desmarca o campo
@@ -89,7 +90,24 @@ function limparFormulario() {
         }
     });
 
-    console.log('Formulário limpo com sucesso!');
+    console.log('Formulário 1 limpo com sucesso!');
+}
+
+function limparFormulario2() {
+    // Seleciona apenas os inputs, textareas e selects dentro do formulário com id 'form-2'
+    const formulario = document.getElementById('form-2');
+    const inputs = formulario.querySelectorAll('input, textarea, select');
+    
+    inputs.forEach(input => {
+        // Limpa o valor ou desmarca o campo
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            input.checked = false; // Desmarca checkboxes e radios
+        } else {
+            input.value = ''; // Limpa campos de texto, número, etc.
+        }
+    });
+
+    console.log('Formulário 2 limpo com sucesso!');
 }
 
 function formularioEstaVazio() {
@@ -186,7 +204,7 @@ async function enviarParaPhysicalAssessment() {
 
         const result = await response.json();
         if (result.status === 'success') {
-            limparFormulario();
+            limparFormulario1();
             alert('Dados enviados com sucesso para a aba Physical_Assessment!');
         } else {
             alert('Erro ao enviar os dados. Tente novamente.');
@@ -202,6 +220,7 @@ async function enviarParaPhysicalAssessment() {
 // Função para enviar dados para a aba size-table
 async function enviarParaSizeTable() {
     const botaoEnviarSize = document.getElementById('bt-sizeTabe');
+    const campoSobras = document.getElementById('sobras').value;
 
     if (!cabecalhoEstaPreenchido()) {
         alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
@@ -252,7 +271,7 @@ async function enviarParaSizeTable() {
 
         const result = await response.json();
         if (result.status === 'success') {
-            limparFormulario();
+            limparFormulario2();
             alert('Dados enviados com sucesso para a aba size-table!');
         } else {
             alert('Erro ao enviar os dados. Tente novamente.');
