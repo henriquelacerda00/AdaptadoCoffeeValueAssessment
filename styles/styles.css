@@ -254,3 +254,7 @@ input[type="number"] {
 .botao-size{
     padding: 10px;
 }
+
+.inputSobras{
+    width: 5% !important;
+}

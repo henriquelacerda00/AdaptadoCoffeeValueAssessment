@@ -128,6 +128,7 @@ async function enviarParaPhysicalAssessment() {
 
     // Captura o número da amostra
     const sampleNumber = document.getElementById('sample-number').value || 'N/A';
+    const moisture = document.getElementById('moisture').value || 'N/A'
 
     // Captura as cores selecionadas
     const colors = [];
@@ -169,7 +170,8 @@ async function enviarParaPhysicalAssessment() {
         sampleNumber, 
         colorsString, 
         ...flatTableData, 
-        ...totalGreen
+        ...totalGreen,
+        moisture
     ];
 
     try {
