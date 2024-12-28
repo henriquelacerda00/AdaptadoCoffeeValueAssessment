@@ -347,12 +347,15 @@ async function enviarParaDescriptive() {
     // Função para capturar os valores dos checkboxes de um grupo
     function capturarCheckboxes(groupName) {
         const checkboxes = document.querySelectorAll(`.${groupName} input[type="checkbox"]`);
-        return Array.from(checkboxes).map(checkbox => (checkbox.checked ? 1 : 0)); // Retorna 1 ou 0
+        return Array.from(checkboxes).map(checkbox => {
+            // Retorna 1 se marcado, 0 se não marcado
+            return checkbox.checked ? 1 : 0;
+        });
     }
 
     // Organizar os valores dos checkboxes para cada grupo
-    const checkboxesArray1 = capturarCheckboxes('checkbox-group1').map(val => (val !== undefined ? val : 0));
-    const checkboxesArray2 = capturarCheckboxes('checkbox-group2').map(val => (val !== undefined ? val : 0));
+    const checkboxesArray1 = capturarCheckboxes('checkbox-group1').map(val => (val === undefined ? 0 : val));
+    const checkboxesArray2 = capturarCheckboxes('checkbox-group2').map(val => (val === undefined ? 0 : val));
     const checkboxesArray3 = capturarCheckboxes('checkbox-group3').map(val => (val === undefined ? 0 : val));
 
 
