@@ -76,13 +76,17 @@ function cabecalhoEstaPreenchido() {
     return headerData.every(campo => campo !== 'N/A' && campo.trim() !== '');
 }
 
-function limparFormulario1() {
-    // Seleciona apenas os inputs, textareas e selects dentro do formulário com id 'form-1'
-    const formulario = document.getElementById('form-1');
+function limparFormularioPorClasse(className) {
+    // Seleciona os elementos dentro do formulário com a classe fornecida
+    const formulario = document.querySelector(`.${className}`);
+    if (!formulario) {
+        console.warn(`Nenhum formulário encontrado com a classe: ${className}`);
+        return;
+    }
+
     const inputs = formulario.querySelectorAll('input, textarea, select');
     
     inputs.forEach(input => {
-        // Limpa o valor ou desmarca o campo
         if (input.type === 'checkbox' || input.type === 'radio') {
             input.checked = false; // Desmarca checkboxes e radios
         } else {
@@ -90,25 +94,9 @@ function limparFormulario1() {
         }
     });
 
-    console.log('Formulário 1 limpo com sucesso!');
+    console.log(`Formulário com a classe "${className}" limpo com sucesso!`);
 }
 
-function limparFormulario2() {
-    // Seleciona apenas os inputs, textareas e selects dentro do formulário com id 'form-2'
-    const formulario = document.getElementById('form-2');
-    const inputs = formulario.querySelectorAll('input, textarea, select');
-    
-    inputs.forEach(input => {
-        // Limpa o valor ou desmarca o campo
-        if (input.type === 'checkbox' || input.type === 'radio') {
-            input.checked = false; // Desmarca checkboxes e radios
-        } else {
-            input.value = ''; // Limpa campos de texto, número, etc.
-        }
-    });
-
-    console.log('Formulário 2 limpo com sucesso!');
-}
 
 function formularioEstaVazio(sectionSelector = null) {
     // Define o escopo da verificação (documento inteiro ou uma section específica)
@@ -223,7 +211,7 @@ async function enviarParaPhysicalAssessment() {
 
         const result = await response.json();
         if (result.status === 'success') {
-            limparFormulario1();
+            limparFormularioPorClasse('physical-Section');
             alert('Dados enviados com sucesso para a aba Physical_Assessment!');
         } else {
             alert('Erro ao enviar os dados. Tente novamente.');
