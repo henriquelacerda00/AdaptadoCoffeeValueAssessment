@@ -191,7 +191,7 @@ input[type="number"] {
 .size-table input {
     margin: 0; /* Remove margens dos campos de entrada */
     padding: 2px; /* Diminui o preenchimento dentro dos inputs */
-    width: 18%; /* Ajusta a largura dos inputs para caber bem na célula */
+    width: 30%; /* Ajusta a largura dos inputs para caber bem na célula */
     box-sizing: border-box; /* Inclui borda e preenchimento no cálculo da largura */
 }
 
