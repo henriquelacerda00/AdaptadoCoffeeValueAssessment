@@ -63,7 +63,7 @@
             </div>          
         </div> 
           <div class="conteudo-central">
-            <form id="form">
+            <form id="form-1">
               <table class="tabela">
                 <thead>
                   <tr>
@@ -196,90 +196,92 @@
         </div>
       
         <section class="container-sizeTable">
-          <table class="size-table">
-            <thead>
-              <tr>
-                <th>Size</th>
-                <th>g</th>
-                <th>%</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>#10</td>
-                <td><input id="gramas-10" type="number" oninput="calcularPorcentagem('gramas-10', 'porcentagem-10')" /></td>
-                <td><input id="porcentagem-10" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#11</td>
-                <td><input id="gramas-11" type="number" oninput="calcularPorcentagem('gramas-11', 'porcentagem-11')" /></td>
-                <td><input id="porcentagem-11" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#12</td>
-                <td><input id="gramas-12" type="number" oninput="calcularPorcentagem('gramas-12', 'porcentagem-12')" /></td>
-                <td><input id="porcentagem-12" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#13</td>
-                <td><input id="gramas-13" type="number" oninput="calcularPorcentagem('gramas-13', 'porcentagem-13')" /></td>
-                <td><input id="porcentagem-13" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#14</td>
-                <td><input id="gramas-14" type="number" oninput="calcularPorcentagem('gramas-14', 'porcentagem-14')" /></td>
-                <td><input id="porcentagem-14" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#15</td>
-                <td><input id="gramas-15" type="number" oninput="calcularPorcentagem('gramas-15', 'porcentagem-15')" /></td>
-                <td><input id="porcentagem-15" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#16</td>
-                <td><input id="gramas-16" type="number" oninput="calcularPorcentagem('gramas-16', 'porcentagem-16')" /></td>
-                <td><input id="porcentagem-16" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#17</td>
-                <td><input id="gramas-17" type="number" oninput="calcularPorcentagem('gramas-17', 'porcentagem-17')" /></td>
-                <td><input id="porcentagem-17" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#18</td>
-                <td><input id="gramas-18" type="number" oninput="calcularPorcentagem('gramas-18', 'porcentagem-18')" /></td>
-                <td><input id="porcentagem-18" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#19</td>
-                <td><input id="gramas-19" type="number" oninput="calcularPorcentagem('gramas-19', 'porcentagem-19')" /></td>
-                <td><input id="porcentagem-19" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#20</td>
-                <td><input id="gramas-20" type="number" oninput="calcularPorcentagem('gramas-20', 'porcentagem-20')" /></td>
-                <td><input id="porcentagem-20" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#21</td>
-                <td><input id="gramas-21" type="number" oninput="calcularPorcentagem('gramas-21', 'porcentagem-21')" /></td>
-                <td><input id="porcentagem-21" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#22</td>
-                <td><input id="gramas-22" type="number" oninput="calcularPorcentagem('gramas-22', 'porcentagem-22')" /></td>
-                <td><input id="porcentagem-22" type="number" readonly /></td>
-              </tr>
-              <tr>
-                <td>#23</td>
-                <td><input id="gramas-23" type="number" oninput="calcularPorcentagem('gramas-23', 'porcentagem-23')" /></td>
-                <td><input id="porcentagem-23" type="number" readonly /></td>
-              </tr>                
-            </tbody>
-          </table>
-          <div class="container-botao-size">
-            <button type="button" class="botao-size" id="bt-sizeTabe" onclick="enviarParaSizeTable()">Enviar dados size table</button>
-          </div>
+          <form id="form-2">
+            <table class="size-table">
+              <thead>
+                <tr>
+                  <th>Size</th>
+                  <th>g</th>
+                  <th>%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#10</td>
+                  <td><input id="gramas-10" type="number" oninput="calcularPorcentagem('gramas-10', 'porcentagem-10')" /></td>
+                  <td><input id="porcentagem-10" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#11</td>
+                  <td><input id="gramas-11" type="number" oninput="calcularPorcentagem('gramas-11', 'porcentagem-11')" /></td>
+                  <td><input id="porcentagem-11" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#12</td>
+                  <td><input id="gramas-12" type="number" oninput="calcularPorcentagem('gramas-12', 'porcentagem-12')" /></td>
+                  <td><input id="porcentagem-12" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#13</td>
+                  <td><input id="gramas-13" type="number" oninput="calcularPorcentagem('gramas-13', 'porcentagem-13')" /></td>
+                  <td><input id="porcentagem-13" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#14</td>
+                  <td><input id="gramas-14" type="number" oninput="calcularPorcentagem('gramas-14', 'porcentagem-14')" /></td>
+                  <td><input id="porcentagem-14" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#15</td>
+                  <td><input id="gramas-15" type="number" oninput="calcularPorcentagem('gramas-15', 'porcentagem-15')" /></td>
+                  <td><input id="porcentagem-15" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#16</td>
+                  <td><input id="gramas-16" type="number" oninput="calcularPorcentagem('gramas-16', 'porcentagem-16')" /></td>
+                  <td><input id="porcentagem-16" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#17</td>
+                  <td><input id="gramas-17" type="number" oninput="calcularPorcentagem('gramas-17', 'porcentagem-17')" /></td>
+                  <td><input id="porcentagem-17" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#18</td>
+                  <td><input id="gramas-18" type="number" oninput="calcularPorcentagem('gramas-18', 'porcentagem-18')" /></td>
+                  <td><input id="porcentagem-18" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#19</td>
+                  <td><input id="gramas-19" type="number" oninput="calcularPorcentagem('gramas-19', 'porcentagem-19')" /></td>
+                  <td><input id="porcentagem-19" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#20</td>
+                  <td><input id="gramas-20" type="number" oninput="calcularPorcentagem('gramas-20', 'porcentagem-20')" /></td>
+                  <td><input id="porcentagem-20" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#21</td>
+                  <td><input id="gramas-21" type="number" oninput="calcularPorcentagem('gramas-21', 'porcentagem-21')" /></td>
+                  <td><input id="porcentagem-21" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#22</td>
+                  <td><input id="gramas-22" type="number" oninput="calcularPorcentagem('gramas-22', 'porcentagem-22')" /></td>
+                  <td><input id="porcentagem-22" type="number" readonly /></td>
+                </tr>
+                <tr>
+                  <td>#23</td>
+                  <td><input id="gramas-23" type="number" oninput="calcularPorcentagem('gramas-23', 'porcentagem-23')" /></td>
+                  <td><input id="porcentagem-23" type="number" readonly /></td>
+                </tr>                
+              </tbody>
+            </table>
+            <div class="container-botao-size">
+              <button type="button" class="botao-size" id="bt-sizeTabe" onclick="enviarParaSizeTable()">Enviar dados size table</button>
+            </div>
+          </form>
         </section>  
 </body>
 </html>
