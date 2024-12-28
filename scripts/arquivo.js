@@ -110,9 +110,12 @@ function limparFormulario2() {
     console.log('Formulário 2 limpo com sucesso!');
 }
 
-function formularioEstaVazio() {
-    // Captura todos os inputs e selects do formulário
-    const inputs = document.querySelectorAll('input, select');
+function formularioEstaVazio(sectionSelector = null) {
+    // Define o escopo da verificação (documento inteiro ou uma section específica)
+    const container = sectionSelector ? document.querySelector(sectionSelector) : document;
+
+    // Captura todos os inputs e selects dentro do container
+    const inputs = container.querySelectorAll('input, select');
 
     // Verifica se algum input ou select está preenchido
     for (const input of inputs) {
@@ -127,25 +130,33 @@ function formularioEstaVazio() {
     return true;
 }
 
+
 // Função para enviar dados para a aba Physical_Assessment
 async function enviarParaPhysicalAssessment() {
     const botaoEnviar = document.getElementById('bt-physical');
+    const sampleNumberField = document.getElementById('sample-number');
 
     if (!cabecalhoEstaPreenchido()) {
         alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
         return; // Impede o envio
     }
 
-    if (formularioEstaVazio()) {
-        alert('Por favor, preencha pelo menos um campo do formulário antes de enviar.');
-        return; // Interrompe a execução se o formulário estiver vazio
+    if (!sampleNumberField.value.trim()) {
+        alert('O campo "Sample Number" é obrigatório. Por favor, preencha antes de enviar.');
+        sampleNumberField.focus(); // Foca no campo vazio
+        return; // Interrompe a execução
+    }
+
+    if (formularioEstaVazio('.physical-Section')) {
+        alert('Por favor, preencha os campos obrigatórios dentro da seção Physical antes de enviar.');
+        return; // Interrompe o envio
     }
     botaoEnviar.disabled = true;
     // Captura os dados do cabeçalho
     const headerData = capturarDadosCabecalho();
 
     // Captura o número da amostra
-    const sampleNumber = document.getElementById('sample-number').value || 'N/A';
+    const sampleNumber = sampleNumberField.value.trim();
     const moisture = document.getElementById('moisture').value || 'N/A'
 
     // Captura as cores selecionadas

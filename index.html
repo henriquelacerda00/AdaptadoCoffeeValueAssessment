@@ -10,58 +10,59 @@
   <script src="scripts/arquivo.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
       <div class="container">
-        <!-- Logo e Título -->
-        <header>
-            <div class="logo-container">
-                <img src="assets/logo-transformed.png" alt="SCA Coffee Value Assessment Logo" class="logo">
-                <div class="dados-formulario">
-                  <label for="name">Name:</label>
-                  <input type="text" id="name" name="name" placeholder="Enter your name">
-                  
-                  <label for="date">Date:</label>
-                  <input type="date" id="date" name="date">
-                  
-                  <label for="purpose">Purpose:</label>
-                  <input type="text" id="purpose" name="purpose" placeholder="Enter purpose">
-                </div>
-                <img src="assets/logo-unb.jpg" alt="logo-unb" class="logo">
-            </div>
-            <H1>Adaptado de:<br> Coffee Value Assessment</H1>
-            <h2>Physical Assessment</h1>
-            <h2>Alpha V1 - September 2023</h2>
-        </header>
+        
+          <!-- Logo e Título -->
+          <header>
+              <div class="logo-container">
+                  <img src="assets/logo-transformed.png" alt="SCA Coffee Value Assessment Logo" class="logo">
+                  <div class="dados-formulario">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                    
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date">
+                    
+                    <label for="purpose">Purpose:</label>
+                    <input type="text" id="purpose" name="purpose" placeholder="Enter purpose">
+                  </div>
+                  <img src="assets/logo-unb.jpg" alt="logo-unb" class="logo">
+              </div>
+              <H1>Adaptado de:<br> Coffee Value Assessment</H1>
+              <h2>Physical Assessment</h1>
+              <h2>Alpha V1 - September 2023</h2>
+          </header>
 
-        <!-- Descrição -->
-        <p class="description">
-          Thank you for testing Alpha V1 of the Physical Assessment, one of four assessments to be completed under the SCA's Coffee Value Assessment System. The SCA anticipates conducting user research on this assessment in 2024.
-          To learn more, please visit <strong><a href="https://sca.coffee/value-assessment" target="_blank">sca.coffee/value-assessment</a></strong>.
-        </p>
+          <!-- Descrição -->
+          <p class="description">
+            Thank you for testing Alpha V1 of the Physical Assessment, one of four assessments to be completed under the SCA's Coffee Value Assessment System. The SCA anticipates conducting user research on this assessment in 2024.
+            To learn more, please visit <strong><a href="https://sca.coffee/value-assessment" target="_blank">sca.coffee/value-assessment</a></strong>.
+          </p>
 
-        <!-- Baseado em amostra -->
-        <p class="sample-info"><strong>Based on a 350g sample</strong></p>
+          <!-- Baseado em amostra -->
+          <p class="sample-info"><strong>Based on a 350g sample</strong></p>
+        
+          <!-- Campo de número da amostra -->
+          <div class="sample-number">
+              <label for="sample-number">SAMPLE No.</label>
+              <input type="text" id="sample-number" name="sample-number">
+          </div>
 
-        <!-- Campo de número da amostra -->
-        <div class="sample-number">
-            <label for="sample-number">SAMPLE No.</label>
-            <input type="text" id="sample-number" name="sample-number">
-        </div>
-
-        <!-- Seção de Color -->
-        <div class="color-section">
-            <div class="color-title">
-              <h3>Color</h3>
-            </div>
-            <div class="color-options">
-              <label><input type="checkbox" value="Blue Green"> Blue Green</label>
-              <label><input type="checkbox" value="Bluish-Green"> Bluish-Green</label>
-              <label><input type="checkbox" value="Green"> Green</label>
-              <label><input type="checkbox" value="Greenish"> Greenish</label>
-              <label><input type="checkbox" value="Yellow-Green"> Yellow-Green</label>
-              <label><input type="checkbox" value="Pale Yellow"> Pale Yellow</label>
-              <label><input type="checkbox" value="Yellowish"> Yellowish</label>
-              <label><input type="checkbox" value="Brownish"> Brownish</label>
-            </div>          
-        </div> 
+        <section class="physical-Section">
+          <div class="color-section">
+              <div class="color-title">
+                <h3>Color</h3>
+              </div>
+              <div class="color-options">
+                <label><input type="checkbox" value="Blue Green"> Blue Green</label>
+                <label><input type="checkbox" value="Bluish-Green"> Bluish-Green</label>
+                <label><input type="checkbox" value="Green"> Green</label>
+                <label><input type="checkbox" value="Greenish"> Greenish</label>
+                <label><input type="checkbox" value="Yellow-Green"> Yellow-Green</label>
+                <label><input type="checkbox" value="Pale Yellow"> Pale Yellow</label>
+                <label><input type="checkbox" value="Yellowish"> Yellowish</label>
+                <label><input type="checkbox" value="Brownish"> Brownish</label>
+              </div>          
+          </div> 
           <div class="conteudo-central">
             <form id="form-1">
               <table class="tabela">
@@ -187,13 +188,14 @@
         
       
       
-        <div class="moisture-section">
-            <label for="moisture">Moisture:</label>
-            <input type="text" id="moisture" placeholder="__%" name="moisture">
-            <p>Meter calibrated to ISO 6637</p>
-        </div>
+          <div class="moisture-section">
+              <label for="moisture">Moisture:</label>
+              <input type="text" id="moisture" placeholder="__%" name="moisture">
+              <p>Meter calibrated to ISO 6637</p>
+          </div>
+        </section>
         <hr>
-        <section class="container-sizeTable">
+        <section class="size-Section">
           <label for="sobrasAmostras">Weight without deffects:</label>
           <input class="inputSobras" id="sobras" type="number" placeholder="quantidade das sobras">
           <form id="form-2">
@@ -282,6 +284,7 @@
               <button type="button" class="botao-size" id="bt-sizeTabe" onclick="enviarParaSizeTable()">Enviar dados size table</button>
             </div>
           </form>
-        </section>  
+        </section>
+      </div>    
 </body>
 </html>
