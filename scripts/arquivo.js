@@ -374,7 +374,6 @@ async function enviarParaDescriptive() {
 
         const result = await response.json();
         if (result.status === 'success') {
-            limparFormulario();
             alert('Dados enviados com sucesso para a aba Descriptive-Form!');
         } else {
             alert('Erro ao enviar os dados. Tente novamente.');
