@@ -54,13 +54,13 @@
                     <span>High</span>
                 </div>
             </div>
-
+        </div>
         <div class="form-group">
             <div class="scale">
                 <h3>Aroma</h3>
                 <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaAroma" min="0" max="15" step="0.25" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -76,44 +76,43 @@
                     <span>High</span>
                 </div>
             </div>
-            <div class="checkbox-group">
-                <label><input type="checkbox"> Floral</label>
-                <label><input type="checkbox"> Fruity</label>
-                <label><input type="checkbox"> Berry</label>
-                <label><input type="checkbox"> Dried Fruit</label>
-                <label><input type="checkbox"> Citrus Fruit</label>
-                <label><input type="checkbox"> Roasted</label>
-                <label><input type="checkbox"> Cereal</label>
-                <label><input type="checkbox"> Burnt</label>
-                <label><input type="checkbox"> Tobacco</label>
-                <label><input type="checkbox"> Sour/Fermented</label>
-                <label><input type="checkbox"> Sour</label>
-                <label><input type="checkbox"> Fermented</label>
-                <label><input type="checkbox"> Green/Vegetative</label>
-                <label><input type="checkbox"> Nutty/Cocoa</label>
-                <label><input type="checkbox"> Nutty</label>
-                <label><input type="checkbox"> Cocoa</label>
-                <label><input type="checkbox"> Spice</label>
-                <label><input type="checkbox"> Other</label>
-                <label><input type="checkbox"> Chemical</label>
-                <label><input type="checkbox"> Musty/Earthy</label>
-                <label><input type="checkbox"> Woody</label>
-                <label><input type="checkbox"> Sweet</label>
-                <label><input type="checkbox"> Vanilla/Vanillin</label>
-                <label><input type="checkbox"> Brown Sugar</label>
-                <!-- Add more checkboxes as needed -->
-            </div>
+            <div class="checkbox-group1">
+                <label><input type="checkbox" class="checkbox" name="floral-1"> Floral</label>
+                <label><input type="checkbox" class="checkbox" name="fruity-1"> Fruity</label>
+                <label><input type="checkbox" class="checkbox" name="berry-1"> Berry</label>
+                <label><input type="checkbox" class="checkbox" name="driedFruit-1"> Dried Fruit</label>
+                <label><input type="checkbox" class="checkbox" name="citrusFruit-1"> Citrus Fruit</label>
+                <label><input type="checkbox" class="checkbox" name="roasted-1"> Roasted</label>
+                <label><input type="checkbox" class="checkbox" name="cereal-1"> Cereal</label>
+                <label><input type="checkbox" class="checkbox" name="burnt-1"> Burnt</label>
+                <label><input type="checkbox" class="checkbox" name="tobacco-1"> Tobacco</label>
+                <label><input type="checkbox" class="checkbox" name="sourFermented-1"> Sour/Fermented</label>
+                <label><input type="checkbox" class="checkbox" name="sour-1"> Sour</label>
+                <label><input type="checkbox" class="checkbox" name="fermented-1"> Fermented</label>
+                <label><input type="checkbox" class="checkbox" name="greenVegetative-1"> Green/Vegetative</label>
+                <label><input type="checkbox" class="checkbox" name="nuttyCocoa-1"> Nutty/Cocoa</label>
+                <label><input type="checkbox" class="checkbox" name="nutty-1"> Nutty</label>
+                <label><input type="checkbox" class="checkbox" name="cocoa-1"> Cocoa</label>
+                <label><input type="checkbox" class="checkbox" name="spice-1"> Spice</label>
+                <label><input type="checkbox" class="checkbox" name="other-1"> Other</label>
+                <label><input type="checkbox" class="checkbox" name="chemical-1"> Chemical</label>
+                <label><input type="checkbox" class="checkbox" name="mustyEarthy-1"> Musty/Earthy</label>
+                <label><input type="checkbox" class="checkbox" name="woody-1"> Woody</label>
+                <label><input type="checkbox" class="checkbox" name="sweet-1"> Sweet</label>
+                <label><input type="checkbox" class="checkbox" name="vanillaVanillin-1"> Vanilla/Vanillin</label>
+                <label><input type="checkbox" class="checkbox" name="last-checkbox"> Brown Sugar</label>
+            </div>             
             
-              <div class="notes-section">
+            <div class="notes-section">
                  <label for="notes">Notes:</label>
-                 <textarea id="notes" rows="4"></textarea>
-             </div>
+                 <textarea id="notes-1" rows="4"></textarea>
+            </div>
             <div class="form-group">
                 <div class="scale">
                     <h3>Flavor</h3>
                     <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaFlavor" min="0" max="15" step="0.25" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -135,7 +134,7 @@
                     <h3>Aftertaste</h3>
                     <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaAftertaste" min="0" max="15" step="0.25" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -151,39 +150,37 @@
                     <span>High</span>
                 </div>
             </div>
-                <div class="checkbox-group">
-                    <label><input type="checkbox"> Floral</label>
-                    <label><input type="checkbox"> Fruity</label>
-                    <label><input type="checkbox"> Berry</label>
-                    <label><input type="checkbox"> Dried Fruit</label>
-                    <label><input type="checkbox"> Citrus Fruit</label>
-                    <label><input type="checkbox"> Roasted</label>
-                    <label><input type="checkbox"> Cereal</label>
-                    <label><input type="checkbox"> Burnt</label>
-                    <label><input type="checkbox"> Tobacco</label>
-                    <label><input type="checkbox"> Sour/Fermented</label>
-                    <label><input type="checkbox"> Sour</label>
-                    <label><input type="checkbox"> Fermented</label>
-                    <label><input type="checkbox"> Green/Vegetative</label>
-                    <label><input type="checkbox"> Nutty/Cocoa</label>
-                    <label><input type="checkbox"> Nutty</label>
-                    <label><input type="checkbox"> Cocoa</label>
-                    <label><input type="checkbox"> Spice</label>
-                    <label><input type="checkbox"> Other</label>
-                    <label><input type="checkbox"> Chemical</label>
-                    <label><input type="checkbox"> Musty/Earthy</label>
-                    <label><input type="checkbox"> Woody</label>
-                    <label><input type="checkbox"> Sweet</label>
-                    <label><input type="checkbox"> Vanilla/Vanillin</label>
-                    <label><input type="checkbox"> Brown Sugar</label>
-                    <!-- Add more checkboxes as needed -->
-                </div>
-            </div>
+            <div class="checkbox-group2">
+                <label><input type="checkbox" class="checkbox" name="floral-2"> Floral</label>
+                <label><input type="checkbox" class="checkbox" name="fruity-2"> Fruity</label>
+                <label><input type="checkbox" class="checkbox" name="berry-2"> Berry</label>
+                <label><input type="checkbox" class="checkbox" name="driedFruit-2"> Dried Fruit</label>
+                <label><input type="checkbox" class="checkbox" name="citrusFruit-2"> Citrus Fruit</label>
+                <label><input type="checkbox" class="checkbox" name="roasted-2"> Roasted</label>
+                <label><input type="checkbox" class="checkbox" name="cereal-2"> Cereal</label>
+                <label><input type="checkbox" class="checkbox" name="burnt-2"> Burnt</label>
+                <label><input type="checkbox" class="checkbox" name="tobacco-2"> Tobacco</label>
+                <label><input type="checkbox" class="checkbox" name="sourFermented-2"> Sour/Fermented</label>
+                <label><input type="checkbox" class="checkbox" name="sour-2"> Sour</label>
+                <label><input type="checkbox" class="checkbox" name="fermented-2"> Fermented</label>
+                <label><input type="checkbox" class="checkbox" name="greenVegetative-2"> Green/Vegetative</label>
+                <label><input type="checkbox" class="checkbox" name="nuttyCocoa-2"> Nutty/Cocoa</label>
+                <label><input type="checkbox" class="checkbox" name="nutty-2"> Nutty</label>
+                <label><input type="checkbox" class="checkbox" name="cocoa-2"> Cocoa</label>
+                <label><input type="checkbox" class="checkbox" name="spice-2"> Spice</label>
+                <label><input type="checkbox" class="checkbox" name="other-2"> Other</label>
+                <label><input type="checkbox" class="checkbox" name="chemical-2"> Chemical</label>
+                <label><input type="checkbox" class="checkbox" name="mustyEarthy-2"> Musty/Earthy</label>
+                <label><input type="checkbox" class="checkbox" name="woody-2"> Woody</label>
+                <label><input type="checkbox" class="checkbox" name="sweet-2"> Sweet</label>
+                <label><input type="checkbox" class="checkbox" name="vanillaVanillin-2"> Vanilla/Vanillin</label>
+                <label><input type="checkbox" class="checkbox" name="ultima-box"> Brown Sugar</label>
+            </div>            
         <!-- Repeat similar structure for other sections like Flavor, Aftertaste, etc. -->
-        <div class="notes-section">
-            <label for="notes">Notes:</label>
-            <textarea id="notes" rows="4"></textarea>
-        </div>
+            <div class="notes-section">
+                <label for="notes">Notes:</label>
+                <textarea id="notes-2" rows="4"></textarea>
+            </div>
         <div class="form-section">
             <!-- Acidity Section -->
             <div class="form-group">
@@ -191,7 +188,7 @@
                     <h3>Acidity</h3>
                     <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaAcidity" min="0" max="15" step="0.25" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -219,7 +216,7 @@
                     <h3>Sweetness</h3>
                     <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaSweet" min="0" max="15" step="0.25" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -246,7 +243,7 @@
                     <h3>Mouthfeel</h3>
                     <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaMouth" min="0" max="15" step="0.25" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -265,14 +262,18 @@
                     <label for="mouthfeel-notes">Notes:</label>
                     <textarea id="mouthfeel-notes" rows="2" class="notas-fixas"></textarea>
                 </div>
-                <div class="checkbox-group">
-                    <label><input type="checkbox"> Rough (Gritty, Chalky, Sandy)</label>
-                    <label><input type="checkbox"> Smooth (Velvety, Silky, Syrupy)</label>
-                    <label><input type="checkbox"> Metallic</label>
-                    <label><input type="checkbox"> Oily</label>
-                    <label><input type="checkbox"> Mouth-Drying</label>
-                </div>
+                <div class="checkbox-group3">
+                    <label><input type="checkbox" class="checkbox" name="rough"> Rough (Gritty, Chalky, Sandy)</label>
+                    <label><input type="checkbox" class="checkbox" name="smooth"> Smooth (Velvety, Silky, Syrupy)</label>
+                    <label><input type="checkbox" class="checkbox" name="metallic"> Metallic</label>
+                    <label><input type="checkbox" class="checkbox" name="oily"> Oily</label>
+                    <label><input type="checkbox" class="checkbox" name="mouthDrying"> Mouth-Drying</label>
+                </div>                
             </div>
+        </div>
+        <div class="container-botao">
+            <button class="bt-descriptive" type="button" id="bt-descriptive" onclick="enviarParaDescriptive()">Enviar dados Descriptive Form</button>
+
         </div>
         <div class="ancoras">
             <a class="item-ancora" href="index.html" style="margin-left: 20px; text-decoration: none; font-weight: bold; color: blue;">

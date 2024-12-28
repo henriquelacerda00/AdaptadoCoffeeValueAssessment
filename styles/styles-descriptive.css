@@ -189,6 +189,25 @@ input[type="range"] {
     resize: none;
 }
 
+.container-botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: auto; /* Para garantir que o botão tenha o tamanho apropriado */
+    text-align: center; /* Alinha o texto do botão */ 
+}
+
 .ancoras{
     margin-top: 5%;
     display: flex;

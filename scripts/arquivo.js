@@ -262,3 +262,106 @@ async function enviarParaSizeTable() {
         botaoEnviar.disabled=false;
     }
 }
+
+function capturarNotasPorGrupo(ids) {
+    return ids.map(id => {
+        const element = document.getElementById(id);
+        return element ? element.value.trim() : ''; // Retorna o valor do campo de texto ou uma string vazia
+    });
+}
+
+async function enviarParaDescriptive() {
+    const botaoEnviar = document.getElementById('bt-descriptive');
+
+    if (!cabecalhoEstaPreenchido()) {
+        alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
+        return; // Impede o envio
+    }
+    botaoEnviar.disabled = true;
+
+    const headerData = capturarDadosCabecalho();
+    const sampleNumber = document.getElementById('sample-no').value || 'N/A';
+
+    // Capturar os valores das escalas
+    const fragranceValue = document.getElementById('scalaFragrance').value;
+    const aromaValue = document.getElementById('scalaAroma').value;
+    const FlavorValue = document.getElementById('scalaFlavor').value;
+    const AfterTasteValue = document.getElementById('scalaAftertaste').value;
+    const AcidityValue = document.getElementById('scalaAcidity').value;
+    const SweetnessValue = document.getElementById('scalaSweet').value;
+    const mouthfeelValue = document.getElementById('scalaMouth').value;
+
+    // Função para capturar os valores dos checkboxes de um grupo
+    function capturarCheckboxes(groupName) {
+        const checkboxes = document.querySelectorAll(`.${groupName} input[type="checkbox"]`);
+        return Array.from(checkboxes).map(checkbox => checkbox.checked ? 1 : 0);
+    }
+
+    // Organizar os valores dos checkboxes para cada grupo
+    const checkboxesArray1 = capturarCheckboxes('checkbox-group1').map(val => (val === undefined ? 0 : val));
+    const checkboxesArray2 = capturarCheckboxes('checkbox-group2').map(val => (val === undefined ? 0 : val));
+    const checkboxesArray3 = capturarCheckboxes('checkbox-group3').map(val => (val === undefined ? 0 : val));
+
+
+    const nota1 = ['notes-1'];  // IDs para as notas de fragrância
+    const nota2 = ['notes-2'];  // IDs para as notas de aroma
+    const nota3 = ['acidity-notes'];
+    const nota4 = ['sweetness-notes'];
+    const nota5 = ['mouthfeel-notes'];
+    // Adicione mais grupos de IDs conforme necessário
+
+    // Captura as notas de cada grupo
+    const notas1 = capturarNotasPorGrupo(nota1);
+    const notas2 = capturarNotasPorGrupo(nota2);
+    const notas3 = capturarNotasPorGrupo(nota3);
+    const notas4 = capturarNotasPorGrupo(nota4);
+    const notas5 = capturarNotasPorGrupo(nota5);
+
+
+
+    // Organizar os dados a serem enviados
+    const rowData = [
+        ...headerData,                // Pode ser um array com valores
+        sampleNumber,
+        fragranceValue,
+        aromaValue,
+        ...checkboxesArray1,
+        ...notas1,
+        FlavorValue,
+        AfterTasteValue,
+        ...checkboxesArray2,
+        ...notas2,
+        AcidityValue,
+        ...notas3,
+        SweetnessValue,
+        ...notas4,
+        mouthfeelValue,
+        ...notas5,
+        ...checkboxesArray3,
+    ];
+    
+
+    try {
+        // Envia os dados para a API via Proxy
+        const response = await fetch('https://adaptado-coffee-value-assessment.vercel.app/api/proxy', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ aba: 'Descriptive-Form', data: rowData }),
+        });
+
+        const result = await response.json();
+        if (result.status === 'success') {
+            limparFormulario();
+            alert('Dados enviados com sucesso para a aba Descriptive-Form!');
+        } else {
+            alert('Erro ao enviar os dados. Tente novamente.');
+        }
+    } catch (error) {
+        console.error('Erro ao enviar para o Google Sheets via Proxy:', error);
+        alert('Ocorreu um erro ao enviar os dados via proxy. Verifique o console.');
+    } finally {
+        botaoEnviar.disabled = false; // Reabilitar o botão de envio
+    }
+}
