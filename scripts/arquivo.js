@@ -135,6 +135,7 @@ function formularioEstaVazio(sectionSelector = null) {
 async function enviarParaPhysicalAssessment() {
     const botaoEnviar = document.getElementById('bt-physical');
     const sampleNumberField = document.getElementById('sample-number');
+    const moistureField = document.getElementById('moisture');
 
     if (!cabecalhoEstaPreenchido()) {
         alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
@@ -151,13 +152,20 @@ async function enviarParaPhysicalAssessment() {
         alert('Por favor, preencha os campos obrigatórios dentro da seção Physical antes de enviar.');
         return; // Interrompe o envio
     }
+
+    if (!moistureField.value.trim()) {
+        alert('O campo "Moisture" é obrigatório. Por favor, preencha antes de enviar.');
+        moistureField.focus(); // Foca no campo vazio
+        return; // Interrompe a execução
+    }
+
     botaoEnviar.disabled = true;
     // Captura os dados do cabeçalho
     const headerData = capturarDadosCabecalho();
 
     // Captura o número da amostra
     const sampleNumber = sampleNumberField.value.trim();
-    const moisture = document.getElementById('moisture').value || 'N/A'
+    const moisture = moistureField.value.trim();
 
     // Captura as cores selecionadas
     const colors = [];
