@@ -400,6 +400,7 @@ async function enviarParaDescriptive() {
         const result = await response.json();
         if (result.status === 'success') {
             alert('Dados enviados com sucesso para a aba Descriptive-Form!');
+            limparCamposFormularioDescriptive();
         } else {
             alert('Erro ao enviar os dados. Tente novamente.');
         }
@@ -410,3 +411,37 @@ async function enviarParaDescriptive() {
         botaoEnviar.disabled = false; // Reabilitar o botão de envio
     }
 }
+
+function limparCamposFormularioDescriptive() {
+    // Limpar inputs do tipo range
+    const ranges = document.querySelectorAll('input[type="range"]');
+    ranges.forEach(range => {
+        range.value = 0;
+    });
+
+    // Limpar checkboxes
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    // IDs de todos os campos de notas
+    const idsNotas = [
+        'notes-1',        // Fragrance notes
+        'notes-2',        // Aroma notes
+        'acidity-notes',  // Acidity notes
+        'sweetness-notes',// Sweetness notes
+        'mouthfeel-notes' // Mouthfeel notes
+        // Adicione mais IDs conforme necessário
+    ];
+
+    // Limpar os valores dos campos de notas
+    idsNotas.forEach(id => {
+        const nota = document.getElementById(id);
+        if (nota) {
+            nota.value = '';
+        }
+    });
+}
+
+

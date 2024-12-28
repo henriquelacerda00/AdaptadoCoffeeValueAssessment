@@ -29,16 +29,15 @@
         <div class="form-section">
             <div class="form-row">
                 <label for="sample-no">Sample No.</label>
-                <input type="number" id="sample-no">
+                <input type="text" id="sample-no">
             </div>
         </div>
-
         <div class="form-group">
             <div class="scale">
                 <h3>Fragrance</h3>
                 <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaFragrance" min="0" max="15" step="0.25" value="0" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -60,7 +59,7 @@
                 <h3>Aroma</h3>
                 <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaAroma" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaAroma" min="0" max="15" step="0.25" value="0" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -112,7 +111,7 @@
                     <h3>Flavor</h3>
                     <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaFlavor" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaFlavor" min="0" max="15" step="0.25" value="0" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -134,7 +133,7 @@
                     <h3>Aftertaste</h3>
                     <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaAftertaste" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaAftertaste" min="0" max="15" step="0.25" value="0" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -188,7 +187,7 @@
                     <h3>Acidity</h3>
                     <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaAcidity" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaAcidity" min="0" max="15" step="0.25" value="0" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -216,7 +215,7 @@
                     <h3>Sweetness</h3>
                     <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaSweet" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaSweet" min="0" max="15" step="0.25" value="0" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -243,7 +242,7 @@
                     <h3>Mouthfeel</h3>
                     <label>Intensity:</label>
                 <div class="scale-range">
-                    <input  type="range" id="scalaMouth" min="0" max="15" step="0.25" class="range-input">
+                    <input  type="range" id="scalaMouth" min="0" max="15" step="0.25" value="0" class="range-input">
                     <div class="arrow-marker" style="left: 34%;">&#11167;</div> <!-- Seta acima de 5 -->
                     <div class="arrow-marker" style="left: 66%;">&#11167;</div>
                 </div>
@@ -270,7 +269,7 @@
                     <label><input type="checkbox" class="checkbox" name="mouthDrying"> Mouth-Drying</label>
                 </div>                
             </div>
-        </div>
+        </div>  
         <div class="container-botao">
             <button class="bt-descriptive" type="button" id="bt-descriptive" onclick="enviarParaDescriptive()">Enviar dados Descriptive Form</button>
 
