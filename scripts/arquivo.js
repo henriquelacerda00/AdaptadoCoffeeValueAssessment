@@ -318,15 +318,22 @@ function capturarNotasPorGrupo(ids) {
 
 async function enviarParaDescriptive() {
     const botaoEnviar = document.getElementById('bt-descriptive');
+    const sampleNumberField = document.getElementById('sample-no');
 
     if (!cabecalhoEstaPreenchido()) {
         alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
         return; // Impede o envio
     }
+    
+    if(!sampleNumberField.value.trim()){
+        alert('O campo "Sample No." é obrigatorio para envio dos dados.')
+        sampleNumberField.focus();
+        return;
+    }
     botaoEnviar.disabled = true;
 
     const headerData = capturarDadosCabecalho();
-    const sampleNumber = document.getElementById('sample-no').value || 'N/A';
+    const sampleNumber = sampleNumberField.value.trim();
 
     // Capturar os valores das escalas
     const fragranceValue = document.getElementById('scalaFragrance').value;
@@ -340,12 +347,12 @@ async function enviarParaDescriptive() {
     // Função para capturar os valores dos checkboxes de um grupo
     function capturarCheckboxes(groupName) {
         const checkboxes = document.querySelectorAll(`.${groupName} input[type="checkbox"]`);
-        return Array.from(checkboxes).map(checkbox => checkbox.checked ? 1 : 0);
+        return Array.from(checkboxes).map(checkbox => (checkbox.checked ? 1 : 0)); // Retorna 1 ou 0
     }
 
     // Organizar os valores dos checkboxes para cada grupo
-    const checkboxesArray1 = capturarCheckboxes('checkbox-group1').map(val => (val === undefined ? 0 : val));
-    const checkboxesArray2 = capturarCheckboxes('checkbox-group2').map(val => (val === undefined ? 0 : val));
+    const checkboxesArray1 = capturarCheckboxes('checkbox-group1').map(val => (val !== undefined ? val : 0));
+    const checkboxesArray2 = capturarCheckboxes('checkbox-group2').map(val => (val !== undefined ? val : 0));
     const checkboxesArray3 = capturarCheckboxes('checkbox-group3').map(val => (val === undefined ? 0 : val));
 
 
