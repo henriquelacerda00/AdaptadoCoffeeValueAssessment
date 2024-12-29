@@ -230,6 +230,37 @@ header h2 {
     width: 70%;
 }
 
+.NON-CUPS, .DEFECT-CUPS {
+    display: flex;
+    align-items: center; /* Alinha o texto e as checkboxes na mesma linha */
+    gap: 10px; /* Espaçamento entre o texto e as checkboxes */
+    position: relative;
+}
+
+.checkboxesNON, .checkboxesDF {
+    display: flex;
+    gap: 10px; /* Espaçamento entre as checkboxes */
+    position: absolute; /* Alinha as checkboxes em relação ao seu contêiner */
+    left: 160px; /* Ajuste do espaço para alinhar com o label */
+    margin-left: 20px;
+}
+
+.IF-ANY{
+display: flex;
+flex-direction: column;
+}
+
+.IF-checkbox{
+    display: flex;
+    flex-direction: column;
+}
+
+.evaluation-group{
+    display: flex;
+    justify-content: space-around;
+}
+
+
 .navegacao{
     display: flex;
     justify-content: center;

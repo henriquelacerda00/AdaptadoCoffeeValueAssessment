@@ -28,11 +28,12 @@
             </div>
         </section>
         <section class="form-body">
-            <div class="sample">
+            
                 <div class="sample-header">
                     <span>SAMPLE NO.</span>
                     <input type="number" placeholder="Enter sample number">
                 </div>
+            <div class="Formulário">
                 <div class="grid">
                     <div class="criteria">
                         <label>Fragrance</label>
@@ -257,8 +258,46 @@
                     </div>                
                 </div>
             </div>
-            <!-- Repetir para outras amostras -->
         </section>
+            <hr>
+            <div class="evaluation-section">
+                <div class="evaluation-group">
+                    <div class="primeira-coluna">
+                        <div class="NON-CUPS">
+                            <label class="aligned-label">NON-UNIFORM CUPS</label>
+                            <div class="checkboxesNON">
+                                <input type="checkbox" id="non-uniform-1">
+                                <input type="checkbox" id="non-uniform-2">
+                                <input type="checkbox" id="non-uniform-3">
+                                <input type="checkbox" id="non-uniform-4">
+                                <input type="checkbox" id="non-uniform-5">
+                            </div>
+                        </div>
+                        <div class="DEFECT-CUPS">
+                            <label class="aligned-label">DEFECTIVE CUPS</label>
+                            <div class="checkboxesDF">
+                                <input type="checkbox" id="defective-1">
+                                <input type="checkbox" id="defective-2">
+                                <input type="checkbox" id="defective-3">
+                                <input type="checkbox" id="defective-4">
+                                <input type="checkbox" id="defective-5">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="segunda-coluna">
+                        <div class="IF-ANY">
+                            <label>DEFECT (IF ANY)</label>
+                            <div class="IF-checkbox">
+                                <label><input type="checkbox" id="defect-moldy"> MOLDY</label>
+                                <label><input type="checkbox" id="defect-phenolic"> PHENOLIC</label>
+                                <label><input type="checkbox" id="defect-potato"> POTATO</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
         <div class="navegacao">
             <a href="index.html" style="margin-left: 20px; text-decoration: none; font-weight: bold; color: blue;">
                 Voltar para o Início
