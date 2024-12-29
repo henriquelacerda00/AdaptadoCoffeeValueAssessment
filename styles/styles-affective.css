@@ -260,6 +260,9 @@ flex-direction: column;
     justify-content: space-around;
 }
 
+.evaluation-section{
+    padding: 1.5em 0;
+}
 
 .navegacao{
     display: flex;
