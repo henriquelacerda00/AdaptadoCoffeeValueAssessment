@@ -216,6 +216,20 @@ header h2 {
 
 }
 
+.notes-6{
+    grid-column: 2;
+    grid-row: 10;
+    position: relative;
+    left: 25px;
+    top: 25px;
+}
+
+.notes-6 textarea{
+    resize: none;
+    height: 20px;
+    width: 70%;
+}
+
 .navegacao{
     display: flex;
     justify-content: center;
