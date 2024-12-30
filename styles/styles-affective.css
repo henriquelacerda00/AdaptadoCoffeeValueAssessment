@@ -264,6 +264,23 @@ flex-direction: column;
     padding: 1.5em 0;
 }
 
+.containerBt-affective{
+    display: flex;
+    justify-content: center;
+}
+
+.botao-affective{
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: auto; /* Para garantir que o botão tenha o tamanho apropriado */
+    text-align: center; /* Alinha o texto do botão */
+}
+
 .navegacao{
     display: flex;
     justify-content: center;
