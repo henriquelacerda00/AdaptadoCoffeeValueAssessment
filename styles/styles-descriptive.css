@@ -222,6 +222,7 @@ button {
     border-radius: 5px;
     width: auto; /* Para garantir que o botão tenha o tamanho apropriado */
     text-align: center; /* Alinha o texto do botão */ 
+    margin-bottom: 10px;
 }
 
 .ancoras{
