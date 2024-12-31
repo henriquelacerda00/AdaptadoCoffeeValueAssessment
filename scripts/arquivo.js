@@ -455,3 +455,161 @@ function limparCamposFormularioDescriptive() {
 }
 
 
+async function enviarParaAffective() {
+    const botaoEnviar = document.getElementById('bt-affective');
+    const sampleNumberField = document.getElementById('sample-number');
+
+    if (!cabecalhoEstaPreenchido()) {
+        alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
+        return; // Impede o envio
+    }
+
+    if(!sampleNumberField.value.trim()){
+        alert('O campo "Sample No." é obrigatorio para envio dos dados.')
+        sampleNumberField.focus();
+        return;
+    }
+    const fragranceValor = obterCriteriosIndividual('fragrance');
+    const aromaValor = obterCriteriosIndividual('aroma');
+    const flavorValor = obterCriteriosIndividual('flavor');
+    const afterTasteValor = obterCriteriosIndividual('aftertaste');
+    const acidityValor = obterCriteriosIndividual('acidity');
+    const sweetnessValor = obterCriteriosIndividual('sweetness');
+    const mouthfeelValor = obterCriteriosIndividual('mouthfeel');
+    const overallValor = obterCriteriosIndividual('overall');
+
+    if ([fragranceValor, aromaValor, flavorValor, afterTasteValor, acidityValor, sweetnessValor, mouthfeelValor, overallValor].includes(null)) {
+        alert('Por favor, preencha todos os critérios antes de enviar.');
+        botaoEnviar.disabled = false;
+        return;
+    }
+    
+    botaoEnviar.disabled=true;
+
+    const headerData = capturarDadosCabecalho();
+    const sampleNumber = sampleNumberField.value.trim();
+
+    const TotalCriterios = obterValoresCriterios();
+    const naoUniformes = obterNumeroNaoUniformes();
+    const defects = obterNumeroDefeituosos();
+
+    const nota1 = ['notes-Fr-Ar'];
+    const nota2 = ['notes-Fl-Af'];
+    const nota3 = ['notes-Acidity'];
+    const nota4 = ['notes-Sweetness'];
+    const nota5 = ['notes-Mouthfell'];
+    const nota6 = ['notes-Overall'];
+
+    const notas1 = capturarNotasPorGrupo(nota1);
+    const notas2 = capturarNotasPorGrupo(nota2);
+    const notas3 = capturarNotasPorGrupo(nota3);
+    const notas4 = capturarNotasPorGrupo(nota4);
+    const notas5 = capturarNotasPorGrupo(nota5);
+    const notas6 = capturarNotasPorGrupo(nota6);
+    
+    const somaHi = TotalCriterios.reduce((acumulador, valor) => acumulador + (parseFloat(valor) || 0), 0);
+    const S = (0.65625 * somaHi) + 52.75 - (2 * naoUniformes) - (4 * defects);
+
+    const rowData = [
+        ...headerData,
+        sampleNumber,
+        fragranceValor,
+        aromaValor,
+        ...notas1,
+        flavorValor,
+        afterTasteValor,
+        ...notas2,
+        acidityValor,
+        ...notas3,
+        sweetnessValor,
+        ...notas4,
+        mouthfeelValor,
+        ...notas5,
+        overallValor,
+        ...notas6,
+        naoUniformes,
+        defects,
+        S.toFixed(2)
+    ]
+
+
+
+    try {
+        // Envia os dados para a API via Proxy
+        const response = await fetch('https://adaptado-coffee-value-assessment.vercel.app/api/proxy', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ aba: 'Affective-Form', data: rowData }),
+        });
+
+        const result = await response.json();
+        if (result.status === 'success') {
+            alert('Dados enviados com sucesso para a aba Affective-Form!');
+            limparCamposFormularioAffective();
+        } else {
+            alert('Erro ao enviar os dados. Tente novamente.');
+        }
+    } catch (error) {
+        console.error('Erro ao enviar para o Google Sheets via Proxy:', error);
+        alert('Ocorreu um erro ao enviar os dados via proxy. Verifique o console.');
+    } finally {
+        botaoEnviar.disabled = false; // Reabilitar o botão de envio
+    }
+}
+
+function obterValoresCriterios() {
+    const criterios = [];
+
+    // Captura todos os elementos de div com a classe 'criteria'
+    const criteriosDivs = document.querySelectorAll('.criteria');
+
+    // Para cada critério, captura o valor selecionado
+    criteriosDivs.forEach(div => {
+        const id = div.id;  // Obtém o ID do critério
+        const valorSelecionado = document.querySelector(`input[name="${id}"]:checked`);
+        
+        if (valorSelecionado) {
+            criterios.push(valorSelecionado.value);  // Adiciona o valor ao array
+        } else {
+            criterios.push(null);  // Se nenhum valor foi selecionado
+        }
+    });
+
+    return criterios;
+}
+
+function obterNumeroNaoUniformes() {
+    // Seleciona todos os checkboxes com IDs que começam com "non-uniform-"
+    const checkboxes = document.querySelectorAll('.checkboxesNON input[type="checkbox"]');
+    
+    // Filtra os checkboxes marcados e retorna o número total
+    const naoUniformesMarcados = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+
+    return naoUniformesMarcados; // Retorna a quantidade de checkboxes marcadas
+}
+
+
+function obterNumeroDefeituosos() {
+    const checkboxes = document.querySelectorAll('.checkboxesDF input[type="checkbox"]')
+    const defectsMarcados = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+    return defectsMarcados;
+}
+
+function obterCriteriosIndividual(groupId) {
+    const group = document.querySelector(`#${groupId}`);
+    const selected = group.querySelector('input[type="radio"]:checked');
+    return selected ? selected.value : null;
+}
+
+function limparCamposFormularioAffective() {
+    // Limpa todos os botões de rádio selecionados
+    document.querySelectorAll('input[type="radio"]:checked').forEach(radio => radio.checked = false);
+
+    // Limpa todos os checkboxes marcados
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => checkbox.checked = false);
+
+    // Limpa os campos de notas (assumindo que as notas estão em inputs de texto ou áreas de texto)
+    document.querySelectorAll('.notas input[type="text"], .notas textarea').forEach(nota => nota.value = '');
+}
