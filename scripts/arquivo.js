@@ -309,12 +309,18 @@ async function enviarParaSizeTable() {
     }
 }
 
-function capturarNotasPorGrupo(ids) {
-    return ids.map(id => {
-        const element = document.getElementById(id);
-        return element ? element.value.trim() : ''; // Retorna o valor do campo de texto ou uma string vazia
+function capturarNotasPorGrupo(grupo) {
+    return grupo.map(id => {
+        const inputElement = document.getElementById(id);
+        // Verifique se o elemento existe e se é uma string antes de aplicar o trim
+        if (inputElement && typeof inputElement.value === 'string') {
+            return inputElement.value.trim(); // Aplique o trim se for uma string válida
+        } else {
+            return ''; // Retorne um valor padrão (vazio) caso contrário
+        }
     });
 }
+
 
 async function enviarParaDescriptive() {
     const botaoEnviar = document.getElementById('bt-descriptive');
@@ -610,4 +616,91 @@ function limparCamposFormularioAffective() {
 
     // Limpa os campos de notas (assumindo que as notas estão em inputs de texto ou áreas de texto)
     document.querySelectorAll('.notas input[type="text"], .notas textarea').forEach(nota => nota.value = '');
+}
+
+
+async function enviarParaExtrisinc(){
+    const botaoEnviar = document.getElementById('bt-extrinsic');
+    const sampleNumberField = document.getElementById('sample-no');
+
+    if (!cabecalhoEstaPreenchido()) {
+        alert('Por favor, preencha todos os campos do cabeçalho (name, date e purpose) antes de enviar.');
+        return; // Impede o envio
+    }
+
+    if(!sampleNumberField.value.trim()){
+        alert('O campo "Sample No." é obrigatorio para envio dos dados.')
+        sampleNumberField.focus();
+        return;
+    }
+    botaoEnviar.disabled=true;
+
+    const headerData = capturarDadosCabecalho();
+    const sampleNumber = sampleNumberField.value.trim();
+
+    function capturarCheckboxes(groupName) {
+        const checkboxes = document.querySelectorAll(`.${groupName} input[type="checkbox"]`);
+        return Array.from(checkboxes).map(checkbox => {
+            // Retorna 1 se marcado, 0 se não marcado
+            return checkbox.checked ? 1 : 0;
+        });
+    }
+
+    const checkboxesFarming = capturarCheckboxes('farming').map(val => (val === undefined ? 0 : val));
+    const checkboxesProcessing = capturarCheckboxes('processing').map(val => (val === undefined ? 0 : val));
+    const checkboxesTrading = capturarCheckboxes('trading').map(val => (val === undefined ? 0 : val));
+    const checkboxesCertifications = capturarCheckboxes('certifications').map(val => (val === undefined ? 0 : val));
+
+
+    const nota1 = ['notes-1'];
+    const nota2 = ['notes-2'];
+    const nota3 = ['notes-3'];
+    const nota4 = ['notes-4'];
+    const nota5 = ['notes-5'];
+
+    const notas1 = capturarNotasPorGrupo(nota1);
+    const notas2 = capturarNotasPorGrupo(nota2);
+    const notas3 = capturarNotasPorGrupo(nota3);
+    const notas4 = capturarNotasPorGrupo(nota4);
+    const notas5 = capturarNotasPorGrupo(nota5);
+    
+    const rowData = [
+        ...headerData,
+        sampleNumber,
+        ...checkboxesFarming,
+        ...notas1,
+        ...checkboxesProcessing,
+        ...notas2,
+        ...checkboxesTrading,
+        ...notas3,
+        ...checkboxesCertifications,
+        ...notas4,
+        ...notas5
+
+    ]
+
+
+    try {
+        // Envia os dados para a API via Proxy
+        const response = await fetch('https://adaptado-coffee-value-assessment.vercel.app/api/proxy', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ aba: 'Extrisinc-Beta', data: rowData }),
+        });
+
+        const result = await response.json();
+        if (result.status === 'success') {
+            alert('Dados enviados com sucesso para a aba Extrisinc-Beta!');
+            limparFormularioPorClasse('form-container');
+        } else {
+            alert('Erro ao enviar os dados. Tente novamente.');
+        }
+    } catch (error) {
+        console.error('Erro ao enviar para o Google Sheets via Proxy:', error);
+        alert('Ocorreu um erro ao enviar os dados via proxy. Verifique o console.');
+    } finally {
+        botaoEnviar.disabled = false; // Reabilitar o botão de envio
+    }
 }

@@ -37,72 +37,80 @@
         <div class="grid-container">
             <div class="grid-item">
                 <h3>Farming</h3>
-                <ul>
-                    <li><input type="checkbox" class="farming-checkbox" value="Country"> Country</li>
-                    <li><input type="checkbox" class="farming-checkbox" value="Region"> Region</li>
-                    <li><input type="checkbox" class="farming-checkbox" value="Farm"> Name of Farm or Co-op</li>
-                    <li><input type="checkbox" class="farming-checkbox" value="Producer"> Name of Producer(s)</li>
-                    <li><input type="checkbox" class="farming-checkbox" value="Species"> Species</li>
-                    <li><input type="checkbox" class="farming-checkbox" value="Varieties"> Variety or Varieties</li>
-                    <li><input type="checkbox" class="farming-checkbox" value="Harvest"> Harvest Date/Year</li>
-                    <li><input type="checkbox" class="farming-checkbox" value="Other"> Other</li>
-                </ul>
+                <div class="farming">
+                    <ul>
+                        <li><input type="checkbox" class="farming-checkbox" value="Country"> Country</li>
+                        <li><input type="checkbox" class="farming-checkbox" value="Region"> Region</li>
+                        <li><input type="checkbox" class="farming-checkbox" value="Farm"> Name of Farm or Co-op</li>
+                        <li><input type="checkbox" class="farming-checkbox" value="Producer"> Name of Producer(s)</li>
+                        <li><input type="checkbox" class="farming-checkbox" value="Species"> Species</li>
+                        <li><input type="checkbox" class="farming-checkbox" value="Varieties"> Variety or Varieties</li>
+                        <li><input type="checkbox" class="farming-checkbox" value="Harvest"> Harvest Date/Year</li>
+                        <li><input type="checkbox" class="farming-checkbox" value="Other"> Other</li>
+                    </ul>
+                </div>
             </div>
-            <div class="grid-item notes">
+            <div class="grid-item notes" >
                 <h3>Notes</h3>
-                <textarea rows="10" placeholder="Enter notes"></textarea>
+                <textarea rows="10" placeholder="Enter notes" id="notes-1"></textarea>
             </div>
             <div class="grid-item">
                 <h3>Processing</h3>
-                <ul>
-                    <li><input type="checkbox"> Name of Processor(s)</li>
-                    <li><input type="checkbox"> Wet Mill / Station</li>
-                    <li><input type="checkbox"> Dry Mill</li>
-                    <li><input type="checkbox"> Other</li>
-                    <li><input type="checkbox"> Process Type</li>
-                    <li><input type="checkbox"> Washed</li>
-                    <li><input type="checkbox"> Natural</li>
-                    <li><input type="checkbox"> Other</li>
-                </ul>
+                <div class="processing">
+                    <ul>
+                        <li><input type="checkbox"> Name of Processor(s)</li>
+                        <li><input type="checkbox"> Wet Mill / Station</li>
+                        <li><input type="checkbox"> Dry Mill</li>
+                        <li><input type="checkbox"> Other</li>
+                        <li><input type="checkbox"> Process Type</li>
+                        <li><input type="checkbox"> Washed</li>
+                        <li><input type="checkbox"> Natural</li>
+                        <li><input type="checkbox"> Other</li>
+                    </ul>
+                </div>
             </div>
-            <div class="grid-item notes">
+            <div class="grid-item notes" >
                 <h3>Notes</h3>
-                <textarea rows="10" placeholder="Enter notes"></textarea>
+                <textarea rows="10" placeholder="Enter notes" id="notes-2"></textarea>
             </div>
             <div class="grid-item">
                 <h3>Trading</h3>
-                <ul>
-                    <li><input type="checkbox"> Size Grade</li>
-                    <li><input type="checkbox"> Other Grade</li>
-                    <li><input type="checkbox"> ICO Number</li>
-                    <li><input type="checkbox"> Other</li>
-                </ul>
+                <div class="trading">
+                    <ul>
+                        <li><input type="checkbox"> Size Grade</li>
+                        <li><input type="checkbox"> Other Grade</li>
+                        <li><input type="checkbox"> ICO Number</li>
+                        <li><input type="checkbox"> Other</li>
+                    </ul>
+                </div>
             </div>
-            <div class="grid-item notes">
+            <div class="grid-item notes" >
                 <h3>Notes</h3>
-                <textarea rows="10" placeholder="Enter notes"></textarea>
+                <textarea rows="10" placeholder="Enter notes" id="notes-3"></textarea>
             </div>
             <div class="grid-item">
                 <h3>Certifications</h3>
-                <ul>
-                    <li><input type="checkbox"> 4C</li>
-                    <li><input type="checkbox"> Fair Trade</li>
-                    <li><input type="checkbox"> Organic</li>
-                    <li><input type="checkbox"> Rainforest Alliance</li>
-                    <li><input type="checkbox"> Other</li>
-                </ul>
+                <div class="certifications">
+                    <ul>
+                        <li><input type="checkbox"> 4C</li>
+                        <li><input type="checkbox"> Fair Trade</li>
+                        <li><input type="checkbox"> Organic</li>
+                        <li><input type="checkbox"> Rainforest Alliance</li>
+                        <li><input type="checkbox"> Other</li>
+                    </ul>
+                </div>
             </div>
-            <div class="grid-item notes">
+            <div class="grid-item notes" >
                 <h3>Notes</h3>
-                <textarea rows="10" placeholder="Enter notes"></textarea>
+                <textarea rows="10" placeholder="Enter notes" id="notes-4"></textarea>
             </div>
         </div>
-        <div class="footer-notes">
+        <div class="footer-notes" >
             <h3>Notes</h3>
-            <textarea rows="5" placeholder="Enter additional notes"></textarea>
+            <textarea rows="5" placeholder="Enter additional notes" id="notes-5"></textarea>
         </div>
         <div class="container-bt">
-            <button class="bt-extrinsic" id="bt-extrinsic">Enviar dados extrinsic-Beta</button>
+            <button class="bt-extrinsic" id="bt-extrinsic" onclick="enviarParaExtrisinc()">Enviar dados extrinsic-Beta</button>
         </div>
     </div>
     <div class="navegacao">
