@@ -119,3 +119,21 @@ input[type="checkbox"] {
     gap:80px ;
     margin-top: 20px;  
 }
+
+.container-bt{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.bt-extrinsic{
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: auto; /* Para garantir que o botão tenha o tamanho apropriado */
+    text-align: center; /* Alinha o texto do botão */ 
+}

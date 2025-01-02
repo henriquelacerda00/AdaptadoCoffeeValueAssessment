@@ -489,7 +489,7 @@ async function enviarParaAffective() {
     const headerData = capturarDadosCabecalho();
     const sampleNumber = sampleNumberField.value.trim();
 
-    const TotalCriterios = obterValoresCriterios();
+    const TotalCriterios = [fragranceValor + aromaValor + flavorValor + afterTasteValor + acidityValor +sweetnessValor + mouthfeelValor + overallValor];
     const naoUniformes = obterNumeroNaoUniformes();
     const defects = obterNumeroDefeituosos();
 
@@ -507,7 +507,16 @@ async function enviarParaAffective() {
     const notas5 = capturarNotasPorGrupo(nota5);
     const notas6 = capturarNotasPorGrupo(nota6);
     
-    const somaHi = TotalCriterios.reduce((acumulador, valor) => acumulador + (parseFloat(valor) || 0), 0);
+    const somaHi =
+        parseFloat(fragranceValor) +
+        parseFloat(aromaValor) +
+        parseFloat(flavorValor) +
+        parseFloat(afterTasteValor) +
+        parseFloat(acidityValor) +
+        parseFloat(sweetnessValor) +
+        parseFloat(mouthfeelValor) +
+        parseFloat(overallValor);
+        
     const S = (0.65625 * somaHi) + 52.75 - (2 * naoUniformes) - (4 * defects);
 
     const rowData = [
@@ -531,6 +540,13 @@ async function enviarParaAffective() {
         defects,
         S.toFixed(2)
     ]
+
+    console.log('somaHi:', somaHi);
+    console.log('naoUniformes:', naoUniformes);
+    console.log('defects:', defects);
+    console.log('S:', S);
+    console.log('totalCriterio:',TotalCriterios);
+
 
 
 
@@ -559,42 +575,24 @@ async function enviarParaAffective() {
     }
 }
 
-function obterValoresCriterios() {
-    const criterios = [];
 
-    // Captura todos os elementos de div com a classe 'criteria'
-    const criteriosDivs = document.querySelectorAll('.criteria');
-
-    // Para cada critério, captura o valor selecionado
-    criteriosDivs.forEach(div => {
-        const id = div.id;  // Obtém o ID do critério
-        const valorSelecionado = document.querySelector(`input[name="${id}"]:checked`);
-        
-        if (valorSelecionado) {
-            criterios.push(valorSelecionado.value);  // Adiciona o valor ao array
-        } else {
-            criterios.push(null);  // Se nenhum valor foi selecionado
-        }
-    });
-
-    return criterios;
-}
 
 function obterNumeroNaoUniformes() {
-    // Seleciona todos os checkboxes com IDs que começam com "non-uniform-"
     const checkboxes = document.querySelectorAll('.checkboxesNON input[type="checkbox"]');
-    
-    // Filtra os checkboxes marcados e retorna o número total
-    const naoUniformesMarcados = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
-
-    return naoUniformesMarcados; // Retorna a quantidade de checkboxes marcadas
+    if (!checkboxes.length) {
+        console.warn("Nenhuma checkbox encontrada para 'Non-Uniform Cups'. Retornando 0.");
+        return 0;
+    }
+    return Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
 }
 
-
 function obterNumeroDefeituosos() {
-    const checkboxes = document.querySelectorAll('.checkboxesDF input[type="checkbox"]')
-    const defectsMarcados = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
-    return defectsMarcados;
+    const checkboxes = document.querySelectorAll('.checkboxesDF input[type="checkbox"]');
+    if (!checkboxes.length) {
+        console.warn("Nenhuma checkbox encontrada para 'Defective Cups'. Retornando 0.");
+        return 0;
+    }
+    return Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
 }
 
 function obterCriteriosIndividual(groupId) {
